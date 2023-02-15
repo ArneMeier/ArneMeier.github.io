@@ -19,5 +19,4 @@ I am working at the [Institute of Theoretical Computer Science](https://www.thi.
 
 {% include_relative _includes/services.md %}
 
-<!--- {% include_relative _includes/publications.md %} -->
-
+{% include_relative _includes/publications.md %}

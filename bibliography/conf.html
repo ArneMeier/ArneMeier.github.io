@@ -1,0 +1,1036 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>JabRef references</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript">
+<!--
+// QuickSearch script for JabRef HTML export 
+// Version: 3.0
+//
+// Copyright (c) 2006-2011, Mark Schenk
+//
+// This software is distributed under a Creative Commons Attribution 3.0 License
+// http://creativecommons.org/licenses/by/3.0/
+//
+// Features:
+// - intuitive find-as-you-type searching
+//    ~ case insensitive
+//    ~ ignore diacritics (optional)
+//
+// - search with/without Regular Expressions
+// - match BibTeX key
+//
+
+// Search settings
+var searchAbstract = true;	// search in abstract
+var searchComment = true;	// search in comment
+
+var noSquiggles = true; 	// ignore diacritics when searching
+var searchRegExp = false; 	// enable RegExp searches
+
+
+if (window.addEventListener) {
+	window.addEventListener("load",initSearch,false); }
+else if (window.attachEvent) {
+	window.attachEvent("onload", initSearch); }
+
+function initSearch() {
+	// check for quick search table and searchfield
+	if (!document.getElementById('qs_table')||!document.getElementById('quicksearch')) { return; }
+
+	// load all the rows and sort into arrays
+	loadTableData();
+	
+	//find the query field
+	qsfield = document.getElementById('qs_field');
+
+	// previous search term; used for speed optimisation
+	prevSearch = '';
+
+	//find statistics location
+	stats = document.getElementById('stat');
+	setStatistics(-1);
+	
+	// set up preferences
+	initPreferences();
+
+	// shows the searchfield
+	document.getElementById('quicksearch').style.display = 'block';
+	document.getElementById('qs_field').onkeyup = quickSearch;
+}
+
+function loadTableData() {
+	// find table and appropriate rows
+	searchTable = document.getElementById('qs_table');
+	var allRows = searchTable.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+
+	// split all rows into entryRows and infoRows (e.g. abstract, comment, bibtex)
+	entryRows = new Array(); infoRows = new Array(); absRows = new Array(); revRows = new Array();
+
+	// get data from each row
+	entryRowsData = new Array(); absRowsData = new Array(); revRowsData = new Array(); 
+	
+	BibTeXKeys = new Array();
+	
+	for (var i=0, k=0, j=0; i<allRows.length;i++) {
+		if (allRows[i].className.match(/entry/)) {
+			entryRows[j] = allRows[i];
+			entryRowsData[j] = stripDiacritics(getTextContent(allRows[i]));
+			allRows[i].id ? BibTeXKeys[j] = allRows[i].id : allRows[i].id = 'autokey_'+j;
+			j ++;
+		} else {
+			infoRows[k++] = allRows[i];
+			// check for abstract/comment
+			if (allRows[i].className.match(/abstract/)) {
+				absRows.push(allRows[i]);
+				absRowsData[j-1] = stripDiacritics(getTextContent(allRows[i]));
+			} else if (allRows[i].className.match(/comment/)) {
+				revRows.push(allRows[i]);
+				revRowsData[j-1] = stripDiacritics(getTextContent(allRows[i]));
+			}
+		}
+	}
+	//number of entries and rows
+	numEntries = entryRows.length;
+	numInfo = infoRows.length;
+	numAbs = absRows.length;
+	numRev = revRows.length;
+}
+
+function quickSearch(){
+	
+	tInput = qsfield;
+
+	if (tInput.value.length == 0) {
+		showAll();
+		setStatistics(-1);
+		qsfield.className = '';
+		return;
+	} else {
+		t = stripDiacritics(tInput.value);
+
+		if(!searchRegExp) { t = escapeRegExp(t); }
+			
+		// only search for valid RegExp
+		try {
+			textRegExp = new RegExp(t,"i");
+			closeAllInfo();
+			qsfield.className = '';
+		}
+			catch(err) {
+			prevSearch = tInput.value;
+			qsfield.className = 'invalidsearch';
+			return;
+		}
+	}
+	
+	// count number of hits
+	var hits = 0;
+
+	// start looping through all entry rows
+	for (var i = 0; cRow = entryRows[i]; i++){
+
+		// only show search the cells if it isn't already hidden OR if the search term is getting shorter, then search all
+		if(cRow.className.indexOf('noshow')==-1 || tInput.value.length <= prevSearch.length){
+			var found = false; 
+
+			if (entryRowsData[i].search(textRegExp) != -1 || BibTeXKeys[i].search(textRegExp) != -1){ 
+				found = true;
+			} else {
+				if(searchAbstract && absRowsData[i]!=undefined) {
+					if (absRowsData[i].search(textRegExp) != -1){ found=true; } 
+				}
+				if(searchComment && revRowsData[i]!=undefined) {
+					if (revRowsData[i].search(textRegExp) != -1){ found=true; } 
+				}
+			}
+			
+			if (found){
+				cRow.className = 'entry show';
+				hits++;
+			} else {
+				cRow.className = 'entry noshow';
+			}
+		}
+	}
+
+	// update statistics
+	setStatistics(hits)
+	
+	// set previous search value
+	prevSearch = tInput.value;
+}
+
+
+// Strip Diacritics from text
+// http://stackoverflow.com/questions/990904/javascript-remove-accents-in-strings
+
+// String containing replacement characters for stripping accents 
+var stripstring = 
+    'AAAAAAACEEEEIIII'+
+    'DNOOOOO.OUUUUY..'+
+    'aaaaaaaceeeeiiii'+
+    'dnooooo.ouuuuy.y'+
+    'AaAaAaCcCcCcCcDd'+
+    'DdEeEeEeEeEeGgGg'+
+    'GgGgHhHhIiIiIiIi'+
+    'IiIiJjKkkLlLlLlL'+
+    'lJlNnNnNnnNnOoOo'+
+    'OoOoRrRrRrSsSsSs'+
+    'SsTtTtTtUuUuUuUu'+
+    'UuUuWwYyYZzZzZz.';
+
+function stripDiacritics(str){
+
+    if(noSquiggles==false){
+        return str;
+    }
+
+    var answer='';
+    for(var i=0;i<str.length;i++){
+        var ch=str[i];
+        var chindex=ch.charCodeAt(0)-192;   // Index of character code in the strip string
+        if(chindex>=0 && chindex<stripstring.length){
+            // Character is within our table, so we can strip the accent...
+            var outch=stripstring.charAt(chindex);
+            // ...unless it was shown as a '.'
+            if(outch!='.')ch=outch;
+        }
+        answer+=ch;
+    }
+    return answer;
+}
+
+// http://stackoverflow.com/questions/3446170/escape-string-for-use-in-javascript-regex
+// NOTE: must escape every \ in the export code because of the JabRef Export...
+function escapeRegExp(str) {
+  return str.replace(/[-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+}
+
+function toggleInfo(articleid,info) {
+
+	var entry = document.getElementById(articleid);
+	var abs = document.getElementById('abs_'+articleid);
+	var rev = document.getElementById('rev_'+articleid);
+	var bib = document.getElementById('bib_'+articleid);
+	
+	if (abs && info == 'abstract') {
+		abs.className.indexOf('noshow') == -1?abs.className = 'abstract noshow':abs.className = 'abstract show';
+	} else if (rev && info == 'comment') {
+		rev.className.indexOf('noshow') == -1?rev.className = 'comment noshow':rev.className = 'comment show';
+	} else if (bib && info == 'bibtex') {
+		bib.className.indexOf('noshow') == -1?bib.className = 'bibtex noshow':bib.className = 'bibtex show';
+	} else { 
+		return;
+	}
+
+	// check if one or the other is available
+	var revshow; var absshow; var bibshow;
+	(abs && abs.className.indexOf('noshow') == -1)? absshow = true: absshow = false;
+	(rev && rev.className.indexOf('noshow') == -1)? revshow = true: revshow = false;	
+	(bib && bib.className.indexOf('noshow') == -1)? bibshow = true: bibshow = false;
+	
+	// highlight original entry
+	if(entry) {
+		if (revshow || absshow || bibshow) {
+		entry.className = 'entry highlight show';
+		} else {
+		entry.className = 'entry show';
+		}
+	}
+	
+	// When there's a combination of abstract/comment/bibtex showing, need to add class for correct styling
+	if(absshow) {
+		(revshow||bibshow)?abs.className = 'abstract nextshow':abs.className = 'abstract';
+	} 
+	if (revshow) {
+		bibshow?rev.className = 'comment nextshow': rev.className = 'comment';
+	}	
+	
+}
+
+function setStatistics (hits) {
+	if(hits < 0) { hits=numEntries; }
+	if(stats) { stats.firstChild.data = hits + '/' + numEntries}
+}
+
+function getTextContent(node) {
+	// Function written by Arve Bersvendsen
+	// http://www.virtuelvis.com
+	
+	if (node.nodeType == 3) {
+	return node.nodeValue;
+	} // text node
+	if (node.nodeType == 1 && node.className != "infolinks") { // element node
+	var text = [];
+	for (var chld = node.firstChild;chld;chld=chld.nextSibling) {
+		text.push(getTextContent(chld));
+	}
+	return text.join("");
+	} return ""; // some other node, won't contain text nodes.
+}
+
+function showAll(){
+	closeAllInfo();
+	for (var i = 0; i < numEntries; i++){ entryRows[i].className = 'entry show'; }
+}
+
+function closeAllInfo(){
+	for (var i=0; i < numInfo; i++){
+		if (infoRows[i].className.indexOf('noshow') ==-1) {
+			infoRows[i].className = infoRows[i].className + ' noshow';
+		}
+	}
+}
+
+function clearQS() {
+	qsfield.value = '';
+	showAll();
+}
+
+function redoQS(){
+	showAll();
+	quickSearch(qsfield);
+}
+
+function updateSetting(obj){
+	var option = obj.id;
+	var checked = obj.value;
+
+	switch(option)
+	 {
+	 case "opt_searchAbs":
+	   searchAbstract=!searchAbstract;
+	   redoQS();
+	   break;
+	 case "opt_searchComment":
+	   searchComment=!searchComment;
+	   redoQS();
+	   break;
+	 case "opt_useRegExp":
+	   searchRegExp=!searchRegExp;
+	   redoQS();
+	   break;
+	 case "opt_noAccents":
+	   noSquiggles=!noSquiggles;
+	   loadTableData();
+	   redoQS();
+	   break;
+	 }
+}
+
+function initPreferences(){
+	if(searchAbstract){document.getElementById("opt_searchAbs").checked = true;}
+	if(searchComment){document.getElementById("opt_searchComment").checked = true;}
+	if(noSquiggles){document.getElementById("opt_noAccents").checked = true;}
+	if(searchRegExp){document.getElementById("opt_useRegExp").checked = true;}
+	
+	if(numAbs==0) {document.getElementById("opt_searchAbs").parentNode.style.display = 'none';}
+	if(numRev==0) {document.getElementById("opt_searchComment").parentNode.style.display = 'none';}	
+}
+
+function toggleSettings(){
+	var togglebutton = document.getElementById('showsettings');
+	var settings = document.getElementById('settings');
+	
+	if(settings.className == "hidden"){
+		settings.className = "show";
+		togglebutton.innerText = "close settings";
+		togglebutton.textContent = "close settings";
+	}else{
+		settings.className = "hidden";
+		togglebutton.innerText = "settings...";		
+		togglebutton.textContent = "settings...";
+	}
+}
+
+-->
+</script>
+<style type="text/css">
+body { background-color: white; font-family: Arial, sans-serif; font-size: 13px; line-height: 1.2; padding: 1em; color: #2E2E2E; width: 50em; margin: auto auto; }
+
+form#quicksearch { width: auto; border-style: solid; border-color: gray; border-width: 1px 0px; padding: 0.7em 0.5em; display:none; position:relative; }
+span#searchstat {padding-left: 1em;}
+
+div#settings { margin-top:0.7em; /* border-bottom: 1px transparent solid; background-color: #efefef; border: 1px grey solid; */ }
+div#settings ul {margin: 0; padding: 0; }
+div#settings li {margin: 0; padding: 0 1em 0 0; display: inline; list-style: none; }
+div#settings li + li { border-left: 2px #efefef solid; padding-left: 0.5em;}
+div#settings input { margin-bottom: 0px;}
+
+div#settings.hidden {display:none;}
+
+#showsettings { border: 1px grey solid; padding: 0 0.5em; float:right; line-height: 1.6em; text-align: right; }
+#showsettings:hover { cursor: pointer; }
+
+.invalidsearch { background-color: red; }
+input[type="button"] { background-color: #efefef; border: 1px #2E2E2E solid;}
+
+table { border: 1px gray none; width: 100%; empty-cells: show; border-spacing: 0em 0.1em; margin: 1em 0em; }
+th, td { border: none; padding: 0.5em; vertical-align: top; text-align: justify; }
+
+td a { color: navy; text-decoration: none; }
+td a:hover  { text-decoration: underline; }
+
+tr.noshow { display: none;}
+tr.highlight td { background-color: #EFEFEF; border-top: 2px #2E2E2E solid; font-weight: bold; }
+tr.abstract td, tr.comment td, tr.bibtex td { background-color: #EFEFEF; text-align: justify; border-bottom: 2px #2E2E2E solid; }
+tr.nextshow td { border-bottom-style: none; }
+
+tr.bibtex pre { width: 100%; overflow: auto; white-space: pre-wrap;}
+p.infolinks { margin: 0.3em 0em 0em 0em; padding: 0px; }
+
+@media print {
+	p.infolinks, #qs_settings, #quicksearch, t.bibtex { display: none !important; }
+	tr { page-break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<form action="" id="quicksearch">
+<input type="text" id="qs_field" autocomplete="off" placeholder="Type to search..." /> <input type="button" onclick="clearQS()" value="clear" />
+<span id="searchstat">Matching entries: <span id="stat">0</span></span>
+<div id="showsettings" onclick="toggleSettings()">settings...</div>
+<div id="settings" class="hidden">
+<ul>
+<li><input type="checkbox" class="search_setting" id="opt_searchAbs" onchange="updateSetting(this)"><label for="opt_searchAbs"> include abstract</label></li>
+<li><input type="checkbox" class="search_setting" id="opt_searchComment" onchange="updateSetting(this)"><label for="opt_searchComment"> include comment</label></li>
+<li><input type="checkbox" class="search_setting" id="opt_useRegExp" onchange="updateSetting(this)"><label for="opt_useRegExp"> use RegExp</label></li>
+<li><input type="checkbox" class="search_setting" id="opt_noAccents" onchange="updateSetting(this)"><label for="opt_noAccents"> ignore accents</label></li>
+</ul>
+</div>
+</form>
+<table id="qs_table" border="1">
+<tbody>
+<tr id="DBLP:conf/lics/GutsfeldMOV22" class="entry">
+	<td>Gutsfeld JO, Meier A, Ohrem C and Virtema J (2022), <i>"Temporal Team Semantics Revisited"</i>, In LICS. , pp. 44:1-44:13. ACM.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('DBLP:conf/lics/GutsfeldMOV22','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_DBLP:conf/lics/GutsfeldMOV22" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@inproceedings{DBLP:conf/lics/GutsfeldMOV22,
+  author = {Jens Oliver Gutsfeld and Arne Meier and Christoph Ohrem and Jonni Virtema},
+  title = {Temporal Team Semantics Revisited},
+  booktitle = {LICS},
+  publisher = {ACM},
+  year = {2022},
+  pages = {44:1--44:13}
+}
+</pre></td>
+</tr>
+<tr id="DBLP:conf/lfcs/KontinenMM22" class="entry">
+	<td>Kontinen J, Meier A and Mahmood Y (2022), <i>"A Parameterized View on the Complexity of Dependence Logic"</i>, In LFCS.  Vol. 13137, pp. 125-142. Springer.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('DBLP:conf/lfcs/KontinenMM22','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_DBLP:conf/lfcs/KontinenMM22" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@inproceedings{DBLP:conf/lfcs/KontinenMM22,
+  author = {Juha Kontinen and Arne Meier and Yasir Mahmood},
+  title = {A Parameterized View on the Complexity of Dependence Logic},
+  booktitle = {LFCS},
+  publisher = {Springer},
+  year = {2022},
+  volume = {13137},
+  pages = {125--142}
+}
+</pre></td>
+</tr>
+<tr id="DBLP:conf/stacs/HaakM0R21" class="entry">
+	<td>Haak A, Meier A, Prakash O and Rao BVR (2021), <i>"Parameterised Counting in Logspace"</i>, In STACS.  Vol. 187, pp. 40:1-40:17. Schloss Dagstuhl - Leibniz-Zentrum f&uuml;r Informatik.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('DBLP:conf/stacs/HaakM0R21','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_DBLP:conf/stacs/HaakM0R21" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@inproceedings{DBLP:conf/stacs/HaakM0R21,
+  author = {Anselm Haak and Arne Meier and Om Prakash and B. V. Raghavendra Rao},
+  title = {Parameterised Counting in Logspace},
+  booktitle = {STACS},
+  publisher = {Schloss Dagstuhl - Leibniz-Zentrum f&uuml;r Informatik},
+  year = {2021},
+  volume = {187},
+  pages = {40:1--40:17}
+}
+</pre></td>
+</tr>
+<tr id="DBLP:conf/ijcai/FichteH0M21" class="entry">
+	<td>Fichte JK, Hecher M, Mahmood Y and Meier A (2021), <i>"Decomposition-Guided Reductions for Argumentation and Treewidth"</i>, In IJCAI. , pp. 1880-1886. ijcai.org.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('DBLP:conf/ijcai/FichteH0M21','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_DBLP:conf/ijcai/FichteH0M21" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@inproceedings{DBLP:conf/ijcai/FichteH0M21,
+  author = {Johannes Klaus Fichte and Markus Hecher and Yasir Mahmood and Arne Meier},
+  title = {Decomposition-Guided Reductions for Argumentation and Treewidth},
+  booktitle = {IJCAI},
+  publisher = {ijcai.org},
+  year = {2021},
+  pages = {1880--1886}
+}
+</pre></td>
+</tr>
+<tr id="DBLP:conf/aaai/0002M021" class="entry">
+	<td>Mahmood Y, Meier A and Schmidt J (2021), <i>"Parameterized Complexity of Logic-Based Argumentation in Schaefer's Framework"</i>, In AAAI. , pp. 6426-6434. AAAI Press.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('DBLP:conf/aaai/0002M021','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_DBLP:conf/aaai/0002M021" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@inproceedings{DBLP:conf/aaai/0002M021,
+  author = {Yasir Mahmood and Arne Meier and Johannes Schmidt},
+  title = {Parameterized Complexity of Logic-Based Argumentation in Schaefer's Framework},
+  booktitle = {AAAI},
+  publisher = {AAAI Press},
+  year = {2021},
+  pages = {6426--6434}
+}
+</pre></td>
+</tr>
+<tr id="DBLP:conf/aaai/FichteHM21" class="entry">
+	<td>Fichte JK, Hecher M and Meier A (2021), <i>"Knowledge-Base Degrees of Inconsistency: Complexity and Counting"</i>, In AAAI. , pp. 6349-6357. AAAI Press.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('DBLP:conf/aaai/FichteHM21','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_DBLP:conf/aaai/FichteHM21" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@inproceedings{DBLP:conf/aaai/FichteHM21,
+  author = {Johannes Klaus Fichte and Markus Hecher and Arne Meier},
+  title = {Knowledge-Base Degrees of Inconsistency: Complexity and Counting},
+  booktitle = {AAAI},
+  publisher = {AAAI Press},
+  year = {2021},
+  pages = {6349--6357}
+}
+</pre></td>
+</tr>
+<tr id="DBLP:conf/foiks/0002M20" class="entry">
+	<td>Mahmood Y and Meier A (2020), <i>"Parameterised Complexity of Model Checking and Satisfiability in Propositional Dependence Logic"</i>, In FoIKS.  Vol. 12012, pp. 157-174. Springer.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('DBLP:conf/foiks/0002M20','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_DBLP:conf/foiks/0002M20" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@inproceedings{DBLP:conf/foiks/0002M20,
+  author = {Yasir Mahmood and Arne Meier},
+  title = {Parameterised Complexity of Model Checking and Satisfiability in Propositional Dependence Logic},
+  booktitle = {FoIKS},
+  publisher = {Springer},
+  year = {2020},
+  volume = {12012},
+  pages = {157--174}
+}
+</pre></td>
+</tr>
+<tr id="DBLP:conf/lfcs/0002M020" class="entry">
+	<td>Mahmood Y, Meier A and Schmidt J (2020), <i>"Parameterised Complexity of Abduction in Schaefer's Framework"</i>, In LFCS.  Vol. 11972, pp. 195-213. Springer.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('DBLP:conf/lfcs/0002M020','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_DBLP:conf/lfcs/0002M020" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@inproceedings{DBLP:conf/lfcs/0002M020,
+  author = {Yasir Mahmood and Arne Meier and Johannes Schmidt},
+  title = {Parameterised Complexity of Abduction in Schaefer's Framework},
+  booktitle = {LFCS},
+  publisher = {Springer},
+  year = {2020},
+  volume = {11972},
+  pages = {195--213}
+}
+</pre></td>
+</tr>
+<tr id="DBLP:conf/aaai/FichteHM19" class="entry">
+	<td>Fichte JK, Hecher M and Meier A (2019), <i>"Counting Complexity for Reasoning in Abstract Argumentation"</i>, In AAAI. , pp. 2827-2834. AAAI Press.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('DBLP:conf/aaai/FichteHM19','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_DBLP:conf/aaai/FichteHM19" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@inproceedings{DBLP:conf/aaai/FichteHM19,
+  author = {Johannes Klaus Fichte and Markus Hecher and Arne Meier},
+  title = {Counting Complexity for Reasoning in Abstract Argumentation},
+  booktitle = {AAAI},
+  publisher = {AAAI Press},
+  year = {2019},
+  pages = {2827--2834}
+}
+</pre></td>
+</tr>
+<tr id="kmvz18" class="entry">
+	<td>Krebs A, Meier A, Virtema J and Zimmermann M (2018), <i>"Team Semantics for the Specification and Verification of Hyperproperties"</i>, In Proc. of the 43rd International Symposium on Mathematical Foundations of Computer Science (MFCS). , pp. 10:1-10:16. LIPIcs.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('kmvz18','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_kmvz18" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@inproceedings{kmvz18,
+  author = {A. Krebs and A. Meier and J. Virtema and M. Zimmermann},
+  title = {Team Semantics for the Specification and Verification of Hyperproperties},
+  booktitle = {Proc. of the 43rd International Symposium on Mathematical Foundations of Computer Science (MFCS)},
+  publisher = {LIPIcs},
+  year = {2018},
+  pages = {10:1--10:16}
+}
+</pre></td>
+</tr>
+<tr id="DBLP:conf/foiks/0001MR18" class="entry">
+	<td>Meier A and Reinbold C (2018), <i>"Enumeration Complexity of Poor Man's Propositional Dependence Logic"</i>, In Foundations of Information and Knowledge Systems - 10th International Symposium, FoIKS 2018, Budapest, Hungary, May 14-18, 2018. Proceedings.  Springer.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('DBLP:conf/foiks/0001MR18','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_DBLP:conf/foiks/0001MR18" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@inproceedings{DBLP:conf/foiks/0001MR18,
+  author = {Arne Meier and Christian Reinbold},
+  editor = {Flavio Ferrarotti and Stefan Woltran},
+  title = {Enumeration Complexity of Poor Man's Propositional Dependence Logic},
+  booktitle = {Foundations of Information and Knowledge Systems - 10th International Symposium, FoIKS 2018, Budapest, Hungary, May 14-18, 2018. Proceedings},
+  publisher = {Springer},
+  year = {2018}
+}
+</pre></td>
+</tr>
+<tr id="DBLP:conf/foiks/0001HKMV18" class="entry">
+	<td>Durand A, Hannula M, Kontinen J, Meier A and Virtema J (2018), <i>"Probabilistic Team Semantics"</i>, In Foundations of Information and Knowledge Systems - 10th International Symposium, FoIKS 2018, Budapest, Hungary, May 14-18, 2018. Proceedings.  Springer.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('DBLP:conf/foiks/0001HKMV18','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_DBLP:conf/foiks/0001HKMV18" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@inproceedings{DBLP:conf/foiks/0001HKMV18,
+  author = {Arnaud Durand and Miika Hannula and Juha Kontinen and Arne Meier and Jonni Virtema},
+  editor = {Flavio Ferrarotti and Stefan Woltran},
+  title = {Probabilistic Team Semantics},
+  booktitle = {Foundations of Information and Knowledge Systems - 10th International Symposium, FoIKS 2018, Budapest, Hungary, May 14-18, 2018. Proceedings},
+  publisher = {Springer},
+  year = {2018}
+}
+</pre></td>
+</tr>
+<tr id="DBLP:conf/mfcs/HellaKMV17" class="entry">
+	<td>Hella L, Kuusisto A, Meier A and Virtema J (2017), <i>"Model Checking and Validity in Propositional and Modal Inclusion Logics"</i>, In 42nd International Symposium on Mathematical Foundations of Computer Science, MFCS 2017, August 21-25, 2017 - Aalborg, Denmark.  Vol. 83, pp. 32:1-32:14. Schloss Dagstuhl - Leibniz-Zentrum fuer Informatik.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('DBLP:conf/mfcs/HellaKMV17','bibtex')">BibTeX</a>] [<a href="https://doi.org/10.4230/LIPIcs.MFCS.2017.32" target="_blank">DOI</a>] [<a href="https://doi.org/10.4230/LIPIcs.MFCS.2017.32" target="_blank">URL</a>]</p>
+	</td>
+</tr>
+<tr id="bib_DBLP:conf/mfcs/HellaKMV17" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@inproceedings{DBLP:conf/mfcs/HellaKMV17,
+  author = {Lauri Hella and Antti Kuusisto and Arne Meier and Jonni Virtema},
+  editor = {Kim G. Larsen and Hans L. Bodlaender and Jean-Fran&ccedil;ois Raskin},
+  title = {Model Checking and Validity in Propositional and Modal Inclusion Logics},
+  booktitle = {42nd International Symposium on Mathematical Foundations of Computer Science, MFCS 2017, August 21-25, 2017 - Aalborg, Denmark},
+  publisher = {Schloss Dagstuhl - Leibniz-Zentrum fuer Informatik},
+  year = {2017},
+  volume = {83},
+  pages = {32:1--32:14},
+  url = {https://doi.org/10.4230/LIPIcs.MFCS.2017.32},
+  doi = {10.4230/LIPIcs.MFCS.2017.32}
+}
+</pre></td>
+</tr>
+<tr id="dhkmv16" class="entry">
+	<td>Durand A, Hannula M, Kontinen J, Meier A and Virtema J (2016), <i>"Approximation and Dependence via Multiteam Semantics"</i>, In Proc. FoIKS. , pp. 271-291.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('dhkmv16','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_dhkmv16" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@inproceedings{dhkmv16,
+  author = {Arnaud Durand and Mikka Hannula and Juha Kontinen and Arne Meier and Jonni Virtema},
+  title = {Approximation and Dependence via Multiteam Semantics},
+  booktitle = {Proc. FoIKS},
+  year = {2016},
+  pages = {271--291}
+}
+</pre></td>
+</tr>
+<tr id="fms16" class="entry">
+	<td>Fichte JK, Meier A and Schindler I (2016), <i>"Strong Backdoors for Default Logic"</i>, In Proc. SAT. , pp. 45-59.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('fms16','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_fms16" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@inproceedings{fms16,
+  author = {Johannes K. Fichte and Arne Meier and Irena Schindler},
+  title = {Strong Backdoors for Default Logic},
+  booktitle = {Proc. SAT},
+  year = {2016},
+  pages = {45--59}
+}
+</pre></td>
+</tr>
+<tr id="mors16" class="entry">
+	<td>Meier A, Ordyniak S, Ramanujan MS and Schindler I (2016), <i>"Backdoors for Linear Temporal Logic"</i>, In Proc. IPEC. 
+	<p class="infolinks"> [<a href="javascript:toggleInfo('mors16','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_mors16" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@inproceedings{mors16,
+  author = {Arne Meier and Sebastian Ordyniak and M. S. Ramanujan and Irena Schindler},
+  title = {Backdoors for Linear Temporal Logic},
+  booktitle = {Proc. IPEC},
+  year = {2016},
+  note = {Invited to Algorithmica Special Issue}
+}
+</pre></td>
+</tr>
+<tr id="lm15" class="entry">
+	<td>L&uuml;ck M and Meier A (2015), <i>"LTL Fragments are Hard for Standard Parameterisations"</i>, In 22nd International Symposium on Temporal Representation and Reasoning. , pp. 59-68.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('lm15','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_lm15" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@inproceedings{lm15,
+  author = {Martin L&uuml;ck and Arne Meier},
+  title = {LTL Fragments are Hard for Standard Parameterisations},
+  booktitle = {22nd International Symposium on Temporal Representation and Reasoning},
+  year = {2015},
+  pages = {59-68}
+}
+</pre></td>
+</tr>
+<tr id="kmm15" class="entry">
+	<td>Krebs A, Meier A and Mundhenk M (2015), <i>"The model checking fingerprints of CTL operators"</i>, In 22nd International Symposium on Temporal Representation and Reasoning. , pp. 101-110.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('kmm15','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_kmm15" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@inproceedings{kmm15,
+  author = {Andreas Krebs and Arne Meier and Martin Mundhenk},
+  title = {The model checking fingerprints of CTL operators},
+  booktitle = {22nd International Symposium on Temporal Representation and Reasoning},
+  year = {2015},
+  pages = {101-110}
+}
+</pre></td>
+</tr>
+<tr id="kmv15" class="entry">
+	<td>Krebs A, Meier A and Virtema J (2015), <i>"A Team Based Variant of CTL"</i>, In Proc. 22nd International Symposium on Temporal Representation and Reasoning. , pp. 140-149.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('kmv15','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_kmv15" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@inproceedings{kmv15,
+  author = {Andreas Krebs and Arne Meier and Jonni Virtema},
+  title = {A Team Based Variant of CTL},
+  booktitle = {Proc. 22nd International Symposium on Temporal Representation and Reasoning},
+  year = {2015},
+  pages = {140-149}
+}
+</pre></td>
+</tr>
+<tr id="lkmv15" class="entry">
+	<td>Hella L, Kuusisto A, Meier A and Vollmer H (2015), <i>"Modal Inclusion Logic: Being Lax is Simpler than Being Strict"</i>, In Proc. of the 40th International Symposium on Mathematical Foundations of Compter Science. , pp. 281-292.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('lkmv15','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_lkmv15" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@inproceedings{lkmv15,
+  author = {Lauri Hella and Antti Kuusisto and Arne Meier and Heribert Vollmer},
+  title = {Modal Inclusion Logic: Being Lax is Simpler than Being Strict},
+  booktitle = {Proc. of the 40th International Symposium on Mathematical Foundations of Compter Science},
+  year = {2015},
+  pages = {281-292}
+}
+</pre></td>
+</tr>
+<tr id="ckmmov15" class="entry">
+	<td>Creignou N, Ktari R, Meier A, M&uuml;ller J-S, Olive F and Vollmer H (2015), <i>"Parameterized Enumeration for Modification Problems"</i>, In Proc. 9th International Conference on Language and Automata Theory and Applications LATA. , pp. 524-536.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('ckmmov15','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_ckmmov15" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@inproceedings{ckmmov15,
+  author = {Nadia Creignou and Ra\ida Ktari and Arne Meier and Julian-Steffen M&uuml;ller and Fr&eacute;d&eacute;ric Olive and Heribert Vollmer},
+  title = {Parameterized Enumeration for Modification Problems},
+  booktitle = {Proc. 9th International Conference on Language and Automata Theory and Applications LATA},
+  year = {2015},
+  pages = {524-536}
+}
+</pre></td>
+</tr>
+<tr id="lms15" class="entry">
+	<td>L&uuml;ck M, Meier A and Schindler I (2015), <i>"Parameterized Complexity of CTL: A Generalization of Courcelle's Theorem"</i>, In Proc. 9th International Conference on Language and Automata Theory and Applications LATA. , pp. 549-560.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('lms15','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_lms15" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@inproceedings{lms15,
+  author = {Martin L&uuml;ck and Arne Meier and Irina Schindler},
+  title = {Parameterized Complexity of CTL: A Generalization of Courcelle's Theorem},
+  booktitle = {Proc. 9th International Conference on Language and Automata Theory and Applications LATA},
+  year = {2015},
+  pages = {549-560}
+}
+</pre></td>
+</tr>
+<tr id="Nadia-Creignou:2013uq" class="entry">
+	<td>Creignou N, Meier A, M&uuml;ller J-S, Schmidt J and Vollmer H (2013), <i>"Paradigms for Parameterized Enumeration"</i>, In Proc. 38th MFCS 2013, LNCS.  Vol. 8087, pp. 290-301.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('Nadia-Creignou:2013uq','bibtex')">BibTeX</a>] [<a href="https://doi.org/10.1007/978-3-642-40313-2_27" target="_blank">DOI</a>]</p>
+	</td>
+</tr>
+<tr id="bib_Nadia-Creignou:2013uq" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@inproceedings{Nadia-Creignou:2013uq,
+  author = {Nadia Creignou and Arne Meier and Julian-Steffen M&uuml;ller and Johannes Schmidt and Heribert Vollmer},
+  title = {Paradigms for Parameterized Enumeration},
+  booktitle = {Proc. 38th MFCS 2013, LNCS},
+  year = {2013},
+  volume = {8087},
+  pages = {290--301},
+  doi = {10.1007/978-3-642-40313-2_27}
+}
+</pre></td>
+</tr>
+<tr id="Ebbing:2013fk" class="entry">
+	<td>Ebbing J, Hella L, Meier A, M&uuml;ller J-S, Virtema J and Vollmer H (2013), <i>"Extended Modal Dependence Logic EMDL"</i>, In Proc. 20th WoLLIC, LNCS.  Vol. 8071, pp. 126-137.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('Ebbing:2013fk','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_Ebbing:2013fk" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@inproceedings{Ebbing:2013fk,
+  author = {Johannes Ebbing and Lauri Hella and Arne Meier and Julian-Steffen M&uuml;ller and Jonni Virtema and Heribert Vollmer},
+  title = {Extended Modal Dependence Logic EMDL},
+  booktitle = {Proc. 20th WoLLIC, LNCS},
+  year = {2013},
+  volume = {8071},
+  pages = {126--137}
+}
+</pre></td>
+</tr>
+<tr id="Goller:2012fk" class="entry">
+	<td>G&ouml;ller S, Meier A, Mundhenk M, Schneider T, Thomas M and Weiss F (2012), <i>"The Complexity of Monotone Hybrid Logics over Linear Frames and the Natural Numbers"</i>, In Proc. Advances in Modal Logic. , pp. 261-278.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('Goller:2012fk','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_Goller:2012fk" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@inproceedings{Goller:2012fk,
+  author = {Stefan G&ouml;ller and Arne Meier and Martin Mundhenk and Thomas Schneider and Michael Thomas and Felix Weiss},
+  title = {The Complexity of Monotone Hybrid Logics over Linear Frames and the Natural Numbers},
+  booktitle = {Proc. Advances in Modal Logic},
+  year = {2012},
+  pages = {261-278}
+}
+</pre></td>
+</tr>
+<tr id="m12" class="entry">
+	<td>Meier A (2012), <i>"Generalized Complexity of ALC Subsumption"</i>, In Proc. 10th International Workshop on Boolean Problems. 
+	<p class="infolinks"> [<a href="javascript:toggleInfo('m12','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_m12" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@inproceedings{m12,
+  author = {Arne Meier},
+  title = {Generalized Complexity of ALC Subsumption},
+  booktitle = {Proc. 10th International Workshop on Boolean Problems},
+  year = {2012}
+}
+</pre></td>
+</tr>
+<tr id="MeMuScThWe10" class="entry">
+	<td>Meier A, Mundhenk M, Schneider T, Thomas M and Weiss F (2010), <i>"The Complexity of Satisfiability for Fragments of Hybrid Logic -- Part II"</i>, In Proc. of the International Workshop on Hybrid Logic and Applications (HyLo 2010). 
+	<p class="infolinks"> [<a href="javascript:toggleInfo('MeMuScThWe10','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_MeMuScThWe10" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@inproceedings{MeMuScThWe10,
+  author = {Arne Meier and Martin Mundhenk and Thomas Schneider and Michael Thomas and Felix Weiss},
+  title = {The Complexity of Satisfiability for Fragments of Hybrid Logic -- Part II},
+  booktitle = {Proc. of the International Workshop on Hybrid Logic and Applications (HyLo 2010)},
+  year = {2010}
+}
+</pre></td>
+</tr>
+<tr id="MeBeMuVoScTh09" class="entry">
+	<td>Beyersdorff O, Meier A, Mundhenk M, Vollmer H, Schneider T and Thomas M (2009), <i>"Model Checking CTL is Almost Always Inherently Sequential"</i>, In Proc. of the 16th International Symposium on Temporal Representation and Reasoning. , pp. 21-28.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('MeBeMuVoScTh09','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_MeBeMuVoScTh09" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@inproceedings{MeBeMuVoScTh09,
+  author = {Olaf Beyersdorff and Arne Meier and Martin Mundhenk and Heribert Vollmer and Thomas Schneider and Michael Thomas},
+  title = {Model Checking CTL is Almost Always Inherently Sequential},
+  booktitle = {Proc. of the 16th International Symposium on Temporal Representation and Reasoning},
+  year = {2009},
+  pages = {21--28}
+}
+</pre></td>
+</tr>
+<tr id="BeMeThVo09" class="entry">
+	<td>Beyersdorff O, Meier A, Thomas M and Vollmer H (2009), <i>"The Complexity of Reasoning for Fragments of Default Logic"</i>, In Theory and Applications of Satisfiability Testing - SAT 2009. , pp. 51-64. Springer.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('BeMeThVo09','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_BeMeThVo09" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@inproceedings{BeMeThVo09,
+  author = {Olaf Beyersdorff and Arne Meier and Michael Thomas and Heribert Vollmer},
+  title = {The Complexity of Reasoning for Fragments of Default Logic},
+  booktitle = {Theory and Applications of Satisfiability Testing - SAT 2009},
+  publisher = {Springer},
+  year = {2009},
+  pages = {51--64}
+}
+</pre></td>
+</tr>
+<tr id="MeMuScThWeWe09" class="entry">
+	<td>Meier A, Mundhenk M, Schneider T, Thomas M, Weber V and Weiss F (2009), <i>"The Complexity of Satisfiability for Fragments of Hybrid Logic -- Part I"</i>, In Proc. of the 34th International Symposium on Mathematical Foundations of Computer Science. , pp. 587-599.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('MeMuScThWeWe09','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_MeMuScThWeWe09" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@inproceedings{MeMuScThWeWe09,
+  author = {Arne Meier and Martin Mundhenk and Thomas Schneider and Michael Thomas and Volker Weber and Felix Weiss},
+  title = {The Complexity of Satisfiability for Fragments of Hybrid Logic -- Part I},
+  booktitle = {Proc. of the 34th International Symposium on Mathematical Foundations of Computer Science},
+  year = {2009},
+  pages = {587--599}
+}
+</pre></td>
+</tr>
+<tr id="mesc10" class="entry">
+	<td>Meier A and Schneider T (2010), <i>"The Complexity of Satisfiability for Sub-Boolean Fragments of ALC"</i>, In Proc. of the 23rd International Workshop on Description Logics (DL 2010). Waterloo, Canada , pp. 279-290.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('mesc10','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_mesc10" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@inproceedings{mesc10,
+  author = {Arne Meier and Thomas Schneider},
+  editor = {Haarslev, V and Toman, D and Weddell, G},
+  title = {The Complexity of Satisfiability for Sub-Boolean Fragments of ALC},
+  booktitle = {Proc. of the 23rd International Workshop on Description Logics (DL 2010)},
+  year = {2010},
+  pages = {279--290}
+}
+</pre></td>
+</tr>
+<tr id="mstv12" class="entry">
+	<td>Meier A, Schmidt J, Thomas M and Vollmer H (2012), <i>"On the Parameterized Complexity of Default Logic and Autoepistemic Logic"</i>, In 6th International Conference on Language and Automata Theory and Applications.  Vol. 7183, pp. 389-400.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('mstv12','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_mstv12" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@inproceedings{mstv12,
+  author = {Arne Meier and Johannes Schmidt and Michael Thomas and Heribert Vollmer},
+  title = {On the Parameterized Complexity of Default Logic and Autoepistemic Logic},
+  booktitle = {6th International Conference on Language and Automata Theory and Applications},
+  year = {2012},
+  volume = {7183},
+  pages = {389--400}
+}
+</pre></td>
+</tr>
+<tr id="MeMuThVo08" class="entry">
+	<td>Meier A, Mundhenk M, Thomas M and Vollmer H (2008), <i>"The Complexity of Satisfiability for Fragments of CTL and CTL*"</i>, In Electronic Notes in Theoretical Computer Science. , pp. 201-213.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('MeMuThVo08','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_MeMuThVo08" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@inproceedings{MeMuThVo08,
+  author = {Arne Meier and Martin Mundhenk and Michael Thomas and Heribert Vollmer},
+  title = {The Complexity of Satisfiability for Fragments of CTL and CTL*},
+  booktitle = {Electronic Notes in Theoretical Computer Science},
+  year = {2008},
+  pages = {201--213}
+}
+</pre></td>
+</tr>
+<tr id="Meier2011" class="entry">
+	<td>Meier A and Schneider T (2011), <i>"Generalized Satisfiability for the Description Logic ALC"</i>, In Proceedings of the 8th Annual Conference on Theory and Application of Models of Computation. , pp. 552-562. Springer Verlag.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('Meier2011','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_Meier2011" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@inproceedings{Meier2011,
+  author = {Arne Meier and Thomas Schneider},
+  title = {Generalized Satisfiability for the Description Logic ALC},
+  booktitle = {Proceedings of the 8th Annual Conference on Theory and Application of Models of Computation},
+  publisher = {Springer Verlag},
+  year = {2011},
+  pages = {552--562}
+}
+</pre></td>
+</tr>
+<tr id="BeMeMuThVo10" class="entry">
+	<td>Beyersdorff O, Meier A, M&uuml;ller S, Thomas M and Vollmer H (2010), <i>"Proof Complexity of Propositional Default Logic"</i>, In Proc. of the 13rd International Conference on Theory and Applications of Satisfiability Testing. , pp. 30-43. Springer-Verlag.
+	<p class="infolinks"> [<a href="javascript:toggleInfo('BeMeMuThVo10','bibtex')">BibTeX</a>]</p>
+	</td>
+</tr>
+<tr id="bib_BeMeMuThVo10" class="bibtex noshow">
+<td><b>BibTeX</b>:
+<pre>
+@inproceedings{BeMeMuThVo10,
+  author = {Olaf Beyersdorff and Arne Meier and Sebastian M&uuml;ller and Michael Thomas and Heribert Vollmer},
+  title = {Proof Complexity of Propositional Default Logic},
+  booktitle = {Proc. of the 13rd International Conference on Theory and Applications of Satisfiability Testing},
+  publisher = {Springer-Verlag},
+  year = {2010},
+  pages = {30--43}
+}
+</pre></td>
+</tr>
+</tbody>
+</table>
+<footer>
+ <small>Created by <a href="http://jabref.sourceforge.net">JabRef</a> on 15/02/2023.</small>
+</footer>
+<!-- file generated by JabRef -->
+</body>
+</html>
