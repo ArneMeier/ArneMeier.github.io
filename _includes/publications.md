@@ -11,5 +11,5 @@
 
 <h4 style="margin:0 10px 0;">Theses</h4>
 
-<iframe src="bibliography/theses.html" title="Theses Publications" style="border: none; width: 700px; height: 350px"></iframe>
+<iframe src="bibliography/theses.html" title="Theses Publications" style="border: none; width: 700px; height: 375px"></iframe>
 </div>

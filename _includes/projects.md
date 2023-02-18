@@ -3,12 +3,32 @@
 <h4 style="margin:0 10px 0;">Active</h4>
 
 <ul style="margin:0 0 5px;">
-  <li><autocolor>[DFG] Team Logics: New Bridges to Database Repairs</autocolor>  <font color="darkgreen">[starting in Summer'23]</font></li>
+  <li>
+    <div class="hfillstretch">
+      <div><autocolor>[<a href="https://www.dfg.de" target="_blank">DFG</a>] Team Logics: New Bridges to Database Repairs</autocolor></div>
+      <div><font color="darkgreen">[starting in Summer'23]</font></div>
+    </div>
+  </li>
 </ul>
 
 <h4 style="margin:0 10px 0;">Finished</h4>
 <ul style="margin:0 0 5px;">
-  <li><autocolor>[DAAD] Descriptive Complexity of Parameterised Counting Classes</autocolor>  <font color="darkgreen">[01'2018 - 12'2019]</font></li>
-  <li><autocolor>[DFG] <a href="https://gepris.dfg.de/gepris/projekt/247444366" target="_blank">Nonclassical logics: parametrised and enumeration complexity</a></autocolor>  <font color="darkgreen">[10'2013 - 07'2022]</font></li>
-  <li><autocolor>[MWK] <a href="https://www.mwk.niedersachsen.de/startseite/" target="_blank">Innovation Plus: Komplexität von Algorithmen</a></autocolor>  <font color="darkgreen">[02'2020 - 09'2022]</font></li>
+  <li>
+    <div class="hfillstretch">
+      <div><autocolor>[<a href="https://www.daad.de" target="_blank">DAAD</a>] Descriptive Complexity of Parameterised Counting Classes</autocolor></div>
+      <div><font color="darkgreen">[01'2018 &minus; 12'2019]</font></div>
+    </div>
+  </li>
+  <li>
+    <div class="hfillstretch">
+      <div><autocolor>[<a href="https://www.dfg.de" target="_blank">DFG</a>] <a href="https://gepris.dfg.de/gepris/projekt/247444366" target="_blank">Nonclassical logics: parametrised and enumeration complexity</a></autocolor></div>
+      <div><font color="darkgreen">[10'2013 &minus; 07'2022]</font></div>
+    </div>
+  </li>
+  <li>
+    <div class="hfillstretch">
+      <div><autocolor>[<a href="https://www.mwk.niedersachsen.de/startseite/" target="_blank">MWK</a>] Innovation Plus: Komplexität von Algorithmen</autocolor></div>
+      <div><font color="darkgreen">[02'2020 &minus; 09'2022]</font></div>
+    </div>
+  </li>
 </ul>

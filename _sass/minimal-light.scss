@@ -619,3 +619,8 @@ footer {
   display:none;
   font-family: monospace;
 }
+
+.hfillstretch {
+  display: flex;
+  justify-content: space-between;
+}
