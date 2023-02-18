@@ -17,6 +17,8 @@ I am working at the [Institute of Theoretical Computer Science](https://www.thi.
 
 - **[Feb. 2023]** Started this webpage ;-)
 
+{% include_relative _includes/projects.md %}
+
 {% include_relative _includes/services.md %}
 
 {% include_relative _includes/publications.md %}

@@ -1,13 +1,5 @@
 ## Community Services
 
-<h4 style="margin:0 10px 0;">Projects</h4>
-
-<ul style="margin:0 0 5px;">
-  <li><autocolor>[DFG] Team Logics: New Bridges to Database Repairs</autocolor>  <font color="darkgreen">[starting in Summer'23]</font></li>
-  <li><autocolor>[DFG] <a href="https://gepris.dfg.de/gepris/projekt/247444366" target="_blank">Nonclassical logics: parametrised and enumeration complexity</a></autocolor>  <font color="darkgreen">[finished]</font></li>
-  <li><autocolor>[DAAD] Descriptive Complexity of Parameterised Counting Classes</autocolor>  <font color="darkgreen">[finished]</font></li>
-</ul>
-
 <h4 style="margin:0 10px 0;">Program Committee Member</h4>
 
 <ul style="margin:0 0 5px;">
