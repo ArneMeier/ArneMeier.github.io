@@ -1,5 +1,13 @@
 ## Community Services
 
+<h4 style="margin:0 10px 0;">Projects</h4>
+
+<ul style="margin:0 0 5px;">
+  <li><autocolor>[DFG] Team Logics: New Bridges to Database Repairs</autocolor>  <font color="darkgreen">[starting in Summer'23]</font></li>
+  <li><autocolor>[DFG] <a href="https://gepris.dfg.de/gepris/projekt/247444366" target="_blank">Nonclassical logics: parametrised and enumeration complexity</a></autocolor>  <font color="darkgreen">[finished]</font></li>
+  <li><autocolor>[DAAD] Descriptive Complexity of Parameterised Counting Classes</autocolor>  <font color="darkgreen">[finished]</font></li>
+</ul>
+
 <h4 style="margin:0 10px 0;">Program Committee Member</h4>
 
 <ul style="margin:0 0 5px;">
@@ -10,7 +18,7 @@
   <li><autocolor><a href="https://www.cs.swansea.ac.uk/lcc/lcc2019.html">International Workshop on Logic and Computational Complexity (LCC) (2019)</a></autocolor></li>
 </ul>
 
-<h4 style="margin:0 10px 0;">Conference Reviewers</h4>
+<h4 style="margin:0 10px 0;">Conference Reviewing</h4>
 
 <ul style="margin:0 0 5px; column-count:2;">
   <li><autocolor>AAAI</autocolor> (2021, 2023)</li>
@@ -32,7 +40,7 @@
   <li><autocolor>WoLLIC</autocolor> (2016)</li>
 </ul>
 
-<h4 style="margin:0 10px 0;">Journal Reviewers</h4>
+<h4 style="margin:0 10px 0;">Journal Reviewing</h4>
 
 <ul style="margin:0 0 20px;">
   <li><a href="https://dl.acm.org/journal/tocl"><autocolor>ACM Transactions on Computational Logic (ACM ToCL)</autocolor></a></li>
