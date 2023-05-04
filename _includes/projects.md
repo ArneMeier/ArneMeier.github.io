@@ -5,8 +5,8 @@
 <ul style="margin:0 0 5px;">
   <li>
     <div class="hfillstretch">
-      <div><autocolor>[<a href="https://www.dfg.de" target="_blank">DFG</a>] Team Logics: New Bridges to Database Repairs</autocolor></div>
-      <div><font color="darkgreen">[starting in Summer'23]</font></div>
+      <div><autocolor>[<a href="https://www.dfg.de" target="_blank">DFG</a>] <a href="https://gepris.dfg.de/gepris/projekt/511769688" target="_blank">Team Logics: New Bridges to Database Repairs</a></autocolor></div>
+      <div><font color="darkgreen">[05'23 &minus; ]</font></div>
     </div>
   </li>
 </ul>

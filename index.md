@@ -15,6 +15,7 @@ I am working at the [Institute of Theoretical Computer Science](https://www.thi.
 
 ## News
 
+- **[May 2023]** Our paper «Quantitative Reasoning and Structural Complexity for Claim-Centric Argumentation» has been accepted for publication at this year <a href="http://ijcai-23.org" target="_blank">IJCAI</a>
 - **[Feb. 2023]** Started this webpage ;-)
 
 {% include_relative _includes/projects.md %}

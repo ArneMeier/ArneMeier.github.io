@@ -25,7 +25,7 @@
   <li><autocolor>LICS</autocolor> (2022)</li>
   <li><autocolor>LODE</autocolor> (2020, 2021)</li>
   <li><autocolor>MFCS</autocolor> (2016, 2022)</li>
-  <li><autocolor>SAT (2012-2014, 2018)</autocolor></li>
+  <li><autocolor>SAT (2012-2014, 2018, 2023)</autocolor></li>
   <li><autocolor>STACS</autocolor> (2012, 2014&minus;2018, 2020, 2021, 2023)</li>
   <li><autocolor>STOC</autocolor> (2022)</li>
   <li><autocolor>TAMC</autocolor> (2011)</li>
@@ -36,10 +36,13 @@
 
 <ul style="margin:0 0 20px;">
   <li><a href="https://dl.acm.org/journal/tocl"><autocolor>ACM Transactions on Computational Logic (ACM ToCL)</autocolor></a></li>
+  <li><a href="https://www.springer.com/journal/453"><autocolor>Algorithmica, Springer</autocolor></a></li>
   <li><a href="https://www.springer.com/journal/10472"><autocolor>Annals of Mathematics and Artificial Intelligence (AMAI)</autocolor></a></li>
   <li><a href="http://jair.org/"><autocolor>Journal of Artificial Intelligence Research (JAIR)</autocolor></a></li>
+  <li><a href="https://academic.oup.com/logcom"><autocolor>Journal of Logic and Computation, Oxford Academic</autocolor></a></li>
   <li><a href="http://jsatjournal.org/"><autocolor>Journal on Satisfiability, Boolean Modelling and Computation (JSAT)</autocolor></a></li>
   <li><a href="https://onlinelibrary.wiley.com/journal/15213870"><autocolor>Mathematical Logic Quartely (MLQ)</autocolor></a></li>
   <li><a href="https://www.ams.org/publications/math-reviews/math-reviews"><autocolor>Mathematical Reviews (MR)</autocolor></a></li>
+  <li><a href="https://www.springer.com/journal/224"><autocolor>Theory of Computing Systems, Springer</autocolor></a></li>
   <li><a href="https://zbmath.org"><autocolor>zbMATH Open</autocolor></a></li>
 </ul>
