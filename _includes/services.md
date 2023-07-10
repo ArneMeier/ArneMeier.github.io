@@ -22,6 +22,7 @@
   <li><autocolor>FoSSaCS</autocolor> (2015)</li>
   <li><autocolor>ICALP</autocolor> (2014, 2020, 2021)</li>
   <li><autocolor>IJCAI</autocolor> (2021, 2022, 2023)</li>
+  <li><autocolor>JELIA</autocolor> (2023)</li>
   <li><autocolor>LICS</autocolor> (2022)</li>
   <li><autocolor>LODE</autocolor> (2020, 2021)</li>
   <li><autocolor>MFCS</autocolor> (2016, 2022)</li>
