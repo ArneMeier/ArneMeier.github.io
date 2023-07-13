@@ -15,7 +15,8 @@ I am working at the [Institute of Theoretical Computer Science](https://www.thi.
 
 ## News
 
-- **[May 2023]** Our paper «Quantitative Reasoning and Structural Complexity for Claim-Centric Argumentation» has been accepted for publication at this year <a href="http://ijcai-23.org" target="_blank">IJCAI</a>
+- **[July 2023]** Our paper «Logics with probabilistic team semantics and the Boolean negation» together with Miika Hannula, Minna Hirvonen, Juha Kontinen, Yasir Mahmood and Jonni Virtema has been accepted for publication at this year <a href="http://jelia2023.inf.tu-dresden.de">JELIA</a>
+- **[May 2023]** Our paper «Quantitative Reasoning and Structural Complexity for Claim-Centric Argumentation» together with Markus Hecher, Johannes Fichte and Yasir Mahmood has been accepted for publication at this year <a href="http://ijcai-23.org" target="_blank">IJCAI</a>
 - **[Feb. 2023]** Started this webpage ;-)
 
 {% include_relative _includes/projects.md %}
