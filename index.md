@@ -11,10 +11,11 @@ I am working at the [Institute of Theoretical Computer Science](https://www.thi.
 
 - **Complexity Theory:** problem complexity, parameterised complexity
 - **Logic in Computer Science:** non-classical, non-monotonic, team, temporal, hybrid, modal, default, and autopistemic logic
-- **Enumeration**: parameterised enumeration, enumeration complexity
+- **Argumentation:** abstract as well as logic-based
+- **Enumeration:** parameterised enumeration, enumeration complexity
 
 ## News
-
+- **[December 2023]** Our paper «Submodel Enumeration for CTL Is Hard» together wiht Nicolas Fröhlich has been accepted for publication at next years <a href="https://aaai.org/aaai-conference/">AAAI'24</a>. You can find a preprint at <a href="https://arxiv.org/abs/2312.09868">arXiv</a>.
 - **[July 2023]** Our paper «Logics with probabilistic team semantics and the Boolean negation» together with Miika Hannula, Minna Hirvonen, Juha Kontinen, Yasir Mahmood and Jonni Virtema has been accepted for publication at this year <a href="http://jelia2023.inf.tu-dresden.de">JELIA</a>
 - **[May 2023]** Our paper «Quantitative Reasoning and Structural Complexity for Claim-Centric Argumentation» together with Markus Hecher, Johannes Fichte and Yasir Mahmood has been accepted for publication at this year <a href="http://ijcai-23.org" target="_blank">IJCAI</a>
 - **[Feb. 2023]** Started this webpage ;-)
