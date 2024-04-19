@@ -5,6 +5,12 @@
 <ul style="margin:0 0 5px;">
   <li>
     <div class="hfillstretch">
+      <div><autocolor>[<a href="https://www.daad.de/de/infos-services-fuer-hochschulen/weiterfuehrende-infos-zu-daad-foerderprogrammen/ppp/" target="_blank">DAAD-PPP</a>] Anwendungen und Komplexität von Logiken in der Semiring-Team-Semantik</autocolor></div>
+      <div><font color="darkgreen">[2024 &minus; 2025 ]</font></div>
+    </div>
+  </li>
+  <li>
+    <div class="hfillstretch">
       <div><autocolor>[<a href="https://www.dfg.de" target="_blank">DFG</a>] <a href="https://gepris.dfg.de/gepris/projekt/511769688" target="_blank">Team Logics: New Bridges to Database Repairs</a></autocolor></div>
       <div><font color="darkgreen">[05'23 &minus; ]</font></div>
     </div>
