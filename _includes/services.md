@@ -7,7 +7,7 @@
   <li><autocolor><a href="https://www.aamas2024-conference.auckland.ac.nz/">The 23rd International Conference on Autonomous Agents and Multi-Agent Systems (AAMAS) (2024)</a></autocolor></li>
   <li><autocolor><a href="https://foiks2024.github.io/index.html">International Symposium on Foundations of Information and Knowledge Systems (FoIKS) (2024)</a></autocolor> (Co-Chair)</li>
   <li><autocolor><a href="https://www.ijcai.org">International Joint Conference on Artificial Intelligence (IJCAI)</a> (2021, 2022, <a href="https://ijcai-23.org/pc-member-list/">2023</a>, 2024),<br /> Distinguished PC Member (<a href="https://twitter.com/IJCAIconf/status/1433178877782892553">2021</a>, <a href="https://twitter.com/ijcaiconf/status/1551838447450595329?s=10&t=6wYerji3d4yfMjwbLmbCyQ">2022</a>)</autocolor></li>
-  <li><autocolor><a href="https://www.pricai.org/"> Pacific Rim International Conference Series on Artificial Intelligence (PRICAI)</a> (<a href="https://pricai.org/2024/index.php/organization/pc-members">2024</a>)
+  <li><autocolor><a href="https://www.pricai.org/"> Pacific Rim International Conference Series on Artificial Intelligence (PRICAI)</a> (<a href="https://pricai.org/2024/index.php/organization/pc-members">2024</a>)</autocolor></li>
   <li><autocolor><a href="https://www.conferences.uni-hamburg.de/event/272/">International Symposium on Theoretical Aspects of Computer Science (STACS) (2023)</a></autocolor></li>
   <li><autocolor><a href="https://www.cs.swansea.ac.uk/lcc/lcc2019.html">International Workshop on Logic and Computational Complexity (LCC) (2019)</a></autocolor></li>
 </ul>
