@@ -15,18 +15,21 @@
 <h4 style="margin:0 10px 0;">Conference Reviewing</h4>
 
 <ul style="margin:0 0 5px; column-count:2;">
-  <li><autocolor>AAAI</autocolor> (2021, 2023)</li>
+  <li><autocolor>AAAI</autocolor> (2021, 2023, 2024)</li>
+  <li><autocolor>AAMAS</autocolor> (2024)</li>
   <li><autocolor>AiML</autocolor> (2014)</li>
   <li><autocolor>CiE</autocolor> (2018, 2021, 2022)</li>
-  <li><autocolor>CSL</autocolor> (2018, 2022)</li>
+  <li><autocolor>CSL</autocolor> (2018, 2021, 2022, 2024)</li>
   <li><autocolor>CSR</autocolor> (2019)</li>
   <li><autocolor>ESA</autocolor> (2021, 2022)</li>
+  <li><autocolor>FoIKS</autocolor> (2024)</li>
   <li><autocolor>FoSSaCS</autocolor> (2015)</li>
   <li><autocolor>ICALP</autocolor> (2014, 2020, 2021)</li>
   <li><autocolor>IJCAI</autocolor> (2021, 2022, 2023, 2024)</li>
   <li><autocolor>JELIA</autocolor> (2023)</li>
-  <li><autocolor>LICS</autocolor> (2022)</li>
+  <li><autocolor>LICS</autocolor> (2022, 2023)</li>
   <li><autocolor>LODE</autocolor> (2020, 2021)</li>
+  <li><autocolor>KR</autocolor> (2024)</li>
   <li><autocolor>MFCS</autocolor> (2016, 2022)</li>
   <li><autocolor>SAT (2012-2014, 2018, 2023)</autocolor></li>
   <li><autocolor>STACS</autocolor> (2012, 2014&minus;2018, 2020, 2021, 2023)</li>
