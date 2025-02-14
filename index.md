@@ -4,7 +4,7 @@ layout: homepage
 
 ## Hello, nice to have you here.
 
-I am a private lecturer (German: Privatdozent) at the [Gottfried Wilhelm Leibniz Universität Hannover](https://www.uni-hannover.de), Germany. 
+I am a professor at the [Gottfried Wilhelm Leibniz Universität Hannover](https://www.uni-hannover.de), Germany. 
 I am working at the [Institute of Theoretical Computer Science](https://www.thi.uni-hannover.de), where I also did my Bachelor's and Master's Degrees in Computer Science as well as my PhD and Habilitation.
 
 ## Research Interests (alphabetical order)
