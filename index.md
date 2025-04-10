@@ -5,13 +5,14 @@ layout: homepage
 ## Hello, nice to have you here.
 
 I am a professor at the [Gottfried Wilhelm Leibniz Universität Hannover](https://www.uni-hannover.de), Germany. 
-I am working at the [Institute of Theoretical Computer Science](https://www.thi.uni-hannover.de), where I also did my Bachelor's and Master's Degrees in Computer Science as well as my PhD and Habilitation.
+I head the research group [Algorithms](https://www.thi.uni-hannover.de/en/rg-algo).
+I obtained my Bachelor's and Master's Degrees in Computer Science as well as my PhD and Habilitation at [Gottfried Wilhelm Leibniz Universität Hannover](https://www.uni-hannover.de), Germany.
 
 ## Research Interests (alphabetical order)
 
 - **Argumentation:** abstract as well as logic-based
 - **Artificial Intelligence:** logical foundations
-- **Complexity Theory:** problem complexity, parameterised complexity
+- **Complexity Theory:** algorithmic complexity, parameterised complexity
 - **Enumeration:** parameterised enumeration, enumeration complexity
 - **Logic in Computer Science:** non-classical, non-monotonic, team, temporal, hybrid, modal, default, and autoepistemic logic
 
