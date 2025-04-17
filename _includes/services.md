@@ -26,7 +26,7 @@
 <h4 style="margin:0 10px 0;">Conference Reviewing</h4>
 
 <ul style="margin:0 0 5px; column-count:2;">
-  <li><autocolor>AAAI</autocolor> (2021, 2023, 2024)</li>
+  <li><autocolor>AAAI</autocolor> (2021, 2023, 2024, 2025)</li>
   <li><autocolor>AAMAS</autocolor> (2024)</li>
   <li><autocolor>AiML</autocolor> (2014)</li>
   <li><autocolor>CiE</autocolor> (2018, 2021, 2022)</li>
@@ -36,13 +36,13 @@
   <li><autocolor>FoIKS</autocolor> (2024)</li>
   <li><autocolor>FoSSaCS</autocolor> (2015)</li>
   <li><autocolor>ICALP</autocolor> (2014, 2020, 2021)</li>
-  <li><autocolor>IJCAI</autocolor> (2021, 2022, 2023, 2024)</li>
+  <li><autocolor>IJCAI</autocolor> (2021&minus;2025)</li>
   <li><autocolor>JELIA</autocolor> (2023)</li>
   <li><autocolor>LICS</autocolor> (2022, 2023)</li>
   <li><autocolor>LODE</autocolor> (2020, 2021)</li>
   <li><autocolor>KR</autocolor> (2024)</li>
   <li><autocolor>MFCS</autocolor> (2016, 2022)</li>
-  <li><autocolor>SAT (2012-2014, 2018, 2023)</autocolor></li>
+  <li><autocolor>SAT (2012&minus;2014, 2018, 2023)</autocolor></li>
   <li><autocolor>STACS</autocolor> (2012, 2014&minus;2018, 2020, 2021, 2023)</li>
   <li><autocolor>STOC</autocolor> (2022)</li>
   <li><autocolor>TAMC</autocolor> (2011)</li>
@@ -55,6 +55,7 @@
   <li><a href="https://dl.acm.org/journal/tocl"><autocolor>ACM Transactions on Computational Logic (ACM ToCL)</autocolor></a></li>
   <li><a href="https://www.springer.com/journal/453"><autocolor>Algorithmica, Springer</autocolor></a></li>
   <li><a href="https://www.springer.com/journal/10472"><autocolor>Annals of Mathematics and Artificial Intelligence (AMAI)</autocolor></a></li>
+  <li><a href="https://www.sciencedirect.com/journal/information-processing-letters"><autocolor>Information Processing Letters (IPL)</autocolor></a></li>
   <li><a href="http://jair.org/"><autocolor>Journal of Artificial Intelligence Research (JAIR)</autocolor></a></li>
   <li><a href="https://academic.oup.com/logcom"><autocolor>Journal of Logic and Computation, Oxford Academic</autocolor></a></li>
   <li><a href="http://jsatjournal.org/"><autocolor>Journal on Satisfiability, Boolean Modelling and Computation (JSAT)</autocolor></a></li>
@@ -62,4 +63,10 @@
   <li><a href="https://www.ams.org/publications/math-reviews/math-reviews"><autocolor>Mathematical Reviews (MR)</autocolor></a></li>
   <li><a href="https://www.springer.com/journal/224"><autocolor>Theory of Computing Systems, Springer</autocolor></a></li>
   <li><a href="https://zbmath.org"><autocolor>zbMATH Open</autocolor></a></li>
+</ul>
+
+<h4 style="margin:0 10px 0;">Project Application Reviewing</h4>
+<ul style="margin:0 0 20px;">
+  <li><a href="https://www.dfg.de/en"><autocolor>Deutsche Forschungsgemeinschaft (DFG)</autocolor></a></li>
+  <li><a href="https://www.nwo.nl/en"><autocolor>Dutch Research Council (NWO)</autocolor></a></li>
 </ul>
