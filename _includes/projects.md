@@ -6,7 +6,7 @@
   <li>
     <div class="hfillstretch">
       <div><autocolor>[<a href="https://www.daad.de/de/infos-services-fuer-hochschulen/weiterfuehrende-infos-zu-daad-foerderprogrammen/ppp/" target="_blank">DAAD</a>] Anwendungen und Komplexität von Logiken in der Semiring-Team-Semantik</autocolor></div>
-      <div><font color="darkgreen">['24 &minus; '25 ]</font></div>
+      <div><font color="darkgreen">['24 &minus; '25]</font></div>
     </div>
   </li>
   <li>
