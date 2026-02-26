@@ -5,8 +5,8 @@
 <ul style="margin:0 0 5px;">
   <li>
     <div class="hfillstretch">
-      <div><autocolor>[<a href="https://www.daad.de/de/infos-services-fuer-hochschulen/weiterfuehrende-infos-zu-daad-foerderprogrammen/ppp/" target="_blank">DAAD</a>] Anwendungen und Komplexität von Logiken in der Semiring-Team-Semantik</autocolor></div>
-      <div><font color="darkgreen">['24 &minus; '25]</font></div>
+      <div><autocolor>[<a href="https://rse.org.uk/rse-awards-provide-over-856k-boost-to-scotlands-research-sector/" target="_blank">RSE-DAAD</a>] Fine-grained complexity classification of CQA</autocolor></div>
+      <div><font color="darkgreen">['26 &minus; '27]</font></div>
     </div>
   </li>
   <li>
@@ -19,6 +19,12 @@
 
 <h4 style="margin:0 10px 0;">Finished</h4>
 <ul style="margin:0 0 5px;">
+  <li>
+    <div class="hfillstretch">
+      <div><autocolor>[<a href="https://www.daad.de/de/infos-services-fuer-hochschulen/weiterfuehrende-infos-zu-daad-foerderprogrammen/ppp/" target="_blank">DAAD</a>] Anwendungen und Komplexität von Logiken in der Semiring-Team-Semantik</autocolor></div>
+      <div><font color="darkgreen">['24 &minus; '25]</font></div>
+    </div>
+  </li>
   <li>
     <div class="hfillstretch">
       <div><autocolor>[<a href="https://www.daad.de" target="_blank">DAAD</a>] Descriptive Complexity of Parameterised Counting Classes</autocolor></div>
