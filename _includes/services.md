@@ -23,6 +23,9 @@
     (STACS) International Symposium on Theoretical Aspects of Computer Science (2023)</a></autocolor></li>
 </ul>
 
+<h4 style="margin:0 10px 0;">Steering Committee Member</h4>
+(FoIKS) International Symposium on Foundations of Information and Knowledge Systems
+
 <h4 style="margin:0 10px 0;">Conference Reviewing</h4>
 
 <ul style="margin:0 0 5px; column-count:2;">
