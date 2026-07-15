@@ -1,0 +1,33 @@
+---
+---
+{% assign the_doi = entry.doi %}
+{% assign the_url = entry.url %}
+{% assign link_url = "" %}
+
+{% if the_doi and the_doi != "" %}
+  {% if the_doi contains "http" %}
+    {% assign link_url = the_doi %}
+  {% else %}
+    {% assign link_url = "https://doi.org/" | append: the_doi %}
+  {% endif %}
+{% elsif the_url and the_url != "" %}
+  {% assign link_url = the_url %}
+{% endif %}
+
+<div class="news-pub-item">
+  <span class="news-pub-year">{{ entry.year }}</span>
+  <span class="news-pub-body">
+    {% if link_url != "" %}
+      <a href="{{ link_url }}" class="news-pub-title" target="_blank" rel="noopener">{{ entry.title }}</a>
+    {% else %}
+      <span class="news-pub-title">{{ entry.title }}</span>
+    {% endif %}
+    <span class="news-pub-venue">
+      {% if entry.journal and entry.journal != "" %}
+        &mdash; <em>{{ entry.journal }}</em>{% if entry.volume and entry.volume != "" %}&thinsp;{{ entry.volume }}{% endif %}{% if entry.number and entry.number != "" %}({{ entry.number }}){% endif %}
+      {% elsif entry.booktitle and entry.booktitle != "" %}
+        &mdash; <em>{{ entry.booktitle }}</em>
+      {% endif %}
+    </span>
+  </span>
+</div>

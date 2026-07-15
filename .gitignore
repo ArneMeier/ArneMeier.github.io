@@ -1,1 +1,8 @@
-_site/*
+# Jekyll build output
+_site/
+
+# Jekyll cache
+.jekyll-cache/
+
+# macOS metadata
+.DS_Store

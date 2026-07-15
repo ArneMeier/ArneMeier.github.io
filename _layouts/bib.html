@@ -1,0 +1,87 @@
+---
+---
+{% assign the_doi = entry.doi %}
+{% assign the_url = entry.url %}
+{% assign link_url = "" %}
+
+{% if the_doi and the_doi != "" %}
+  {% if the_doi contains "http" %}
+    {% assign link_url = the_doi %}
+  {% else %}
+    {% assign link_url = "https://doi.org/" | append: the_doi %}
+  {% endif %}
+{% elsif the_url and the_url != "" %}
+  {% assign link_url = the_url %}
+{% endif %}
+
+<div class="pub-item"
+     data-year="{{ entry.year }}"
+     data-type="{{ entry.type }}"
+     data-key="{{ entry.key }}"
+     data-keywords="{{ entry.keywords }}">
+
+  <div class="pub-title-row">
+    {% if link_url != "" %}
+      <a href="{{ link_url }}" class="pub-title-link" target="_blank" rel="noopener">{{ entry.title }}</a>
+    {% else %}
+      <span class="pub-title-text">{{ entry.title }}</span>
+    {% endif %}
+  </div>
+
+  <div class="pub-authors">{{ entry.author }}</div>
+
+  <div class="pub-meta">
+    {% if entry.journal and entry.journal != "" %}
+      <em class="pub-venue">{{ entry.journal }}</em>{% if entry.volume and entry.volume != "" %}&thinsp;{{ entry.volume }}{% endif %}{% if entry.number and entry.number != "" %}({{ entry.number }}){% endif %}{% if entry.pages and entry.pages != "" %},&thinsp;{{ entry.pages }}{% endif %}
+    {% elsif entry.booktitle and entry.booktitle != "" %}
+      <em class="pub-venue">{{ entry.booktitle }}</em>{% if entry.pages and entry.pages != "" %},&thinsp;{{ entry.pages }}{% endif %}
+    {% elsif entry.school and entry.school != "" %}
+      Thesis &mdash; <em class="pub-venue">{{ entry.school }}</em>
+    {% elsif entry.howpublished and entry.howpublished != "" %}
+      <em class="pub-venue">{{ entry.howpublished }}</em>
+    {% elsif entry.publisher and entry.publisher != "" %}
+      <em class="pub-venue">{{ entry.publisher }}</em>
+    {% endif %}
+    <span class="pub-year">({{ entry.year }})</span>
+
+    {% if the_doi and the_doi != "" %}
+      {% if the_doi contains "http" %}
+        <a href="{{ the_doi }}" class="pub-badge badge-doi" target="_blank" rel="noopener">DOI</a>
+      {% else %}
+        <a href="https://doi.org/{{ the_doi }}" class="pub-badge badge-doi" target="_blank" rel="noopener">DOI</a>
+      {% endif %}
+    {% endif %}
+
+    {% if the_url and the_url != "" %}
+      {% unless the_url contains "doi.org" %}
+        <a href="{{ the_url }}" class="pub-badge badge-link" target="_blank" rel="noopener">Link</a>
+      {% endunless %}
+    {% endif %}
+
+    {% if entry.journalversion and entry.journalversion != "" %}
+      <button class="pub-badge badge-related" data-goto="{{ entry.journalversion }}">&#8599; Journal version</button>
+    {% endif %}
+
+    {% if entry.confversion and entry.confversion != "" %}
+      <button class="pub-badge badge-related" data-goto="{{ entry.confversion }}">&#8599; Conference version</button>
+    {% endif %}
+
+    {% if entry.erratum and entry.erratum != "" %}
+      <button class="pub-badge badge-erratum" data-goto="{{ entry.erratum }}">&#9888; Erratum</button>
+    {% endif %}
+
+    {% if entry.erratumof and entry.erratumof != "" %}
+      <button class="pub-badge badge-erratum" data-goto="{{ entry.erratumof }}">&#9888; Erratum of</button>
+    {% endif %}
+
+    {% if entry.keywords and entry.keywords != "" %}
+      <div class="pub-keywords">
+        {% assign kw_list = entry.keywords | split: ", " %}
+        {% for kw in kw_list %}
+          <span class="pub-kw-tag" data-kw="{{ kw }}">#{{ kw }}</span>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+
+</div>

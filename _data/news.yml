@@ -1,0 +1,68 @@
+# _data/news.yml
+#
+# Manuelle News-Einträge für Dinge, die NICHT automatisch aus den
+# BibTeX-Dateien generiert werden können:
+#   - Angenommene Paper, die noch keine DOI / keinen bib-Eintrag haben
+#   - Grants, Awards, Eingeladene Vorträge, sonstige Ankündigungen
+#
+# Felder:
+#   date   – Anzeige-Datum (z.B. "June 2026")
+#   html   – Inhalt als HTML-Snippet (Links, Fettschrift etc. erlaubt)
+#
+# Sobald ein Paper einen DOI hat und in die .bib-Datei aufgenommen wurde,
+# einfach den Eintrag hier löschen – es erscheint dann automatisch im
+# Abschnitt „Recent Papers".
+
+- date: "June 2026"
+  html: >-
+    Our paper
+    «<a href="https://arxiv.org/abs/2412.08324" target="_blank" rel="noopener">Parameterised
+    Complexity of Consistent Query Answering via Graph Representations</a>»
+    together with
+    <a href="https://sites.google.com/view/miika-hannula" target="_blank" rel="noopener">Miika Hannula</a>,
+    Teemu Hankala, and
+    <a href="https://dice-research.org/YasirMahmood" target="_blank" rel="noopener">Yasir Mahmood</a>
+    accepted at
+    <a href="https://edbticdt2027.github.io" target="_blank" rel="noopener">ICDT 2027</a>.
+
+- date: "May 2026"
+  html: >-
+    Our paper «Complexity of Logics with Semiring Semantics» together with
+    <a href="https://www.thi.uni-hannover.de/barlag" target="_blank" rel="noopener">Timon Barlag</a>,
+    <a href="https://www.thi.uni-hannover.de/de/froehlich" target="_blank" rel="noopener">Nicolas Fröhlich</a>,
+    Teemu Hankala,
+    <a href="https://sites.google.com/view/miika-hannula" target="_blank" rel="noopener">Miika Hannula</a>,
+    Minna Hirvonen,
+    <a href="https://www.thi.uni-hannover.de/de/holzapfel" target="_blank" rel="noopener">Vivian Holzapfel</a>,
+    <a href="https://researchportal.helsinki.fi/en/persons/juha-kontinen/" target="_blank" rel="noopener">Juha Kontinen</a>,
+    and
+    <a href="https://www.thi.uni-hannover.de/de/strieker" target="_blank" rel="noopener">Laura Strieker</a>
+    accepted at
+    <a href="https://kr.org/KR2026/accepted.html" target="_blank" rel="noopener">KR 2026</a>.
+
+- date: "May 2026"
+  html: >-
+    Our paper
+    «<a href="https://arxiv.org/abs/2602.21360" target="_blank" rel="noopener">Representation
+    Theorems for Cumulative Propositional Dependence Logics</a>»
+    together with
+    <a href="https://researchportal.helsinki.fi/en/persons/juha-kontinen/" target="_blank" rel="noopener">Juha Kontinen</a>
+    and
+    <a href="https://www.kai-sauerwald.de/index.html" target="_blank" rel="noopener">Kai Sauerwald</a>
+    accepted at
+    <a href="https://kr.org/KR2026/accepted.html" target="_blank" rel="noopener">KR 2026</a>.
+
+- date: "May 2026"
+  html: >-
+    Our paper «A Circuit-Theoretic View of FO over Semirings» together with
+    <a href="https://www.thi.uni-hannover.de/barlag" target="_blank" rel="noopener">Timon Barlag</a>,
+    <a href="https://www.thi.uni-hannover.de/de/froehlich" target="_blank" rel="noopener">Nicolas Fröhlich</a>,
+    Teemu Hankala,
+    <a href="https://sites.google.com/view/miika-hannula" target="_blank" rel="noopener">Miika Hannula</a>,
+    Minna Hirvonen,
+    <a href="https://www.thi.uni-hannover.de/de/holzapfel" target="_blank" rel="noopener">Vivian Holzapfel</a>,
+    <a href="https://researchportal.helsinki.fi/en/persons/juha-kontinen/" target="_blank" rel="noopener">Juha Kontinen</a>,
+    and
+    <a href="https://www.thi.uni-hannover.de/de/strieker" target="_blank" rel="noopener">Laura Strieker</a>
+    accepted at
+    <a href="https://eventos.spc.org.pe/wollic2026/program/#presentations-timeline" target="_blank" rel="noopener">WoLLIC 2026</a>.

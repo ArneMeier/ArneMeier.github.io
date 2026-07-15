@@ -1,371 +1,318 @@
-%% This BibTeX bibliography file was created using BibDesk.
-%% https://bibdesk.sourceforge.io/
-
-%% Created for Arne Meier at 2025-09-09 16:42:28 +0200 
-
-
-%% Saved with string encoding Unicode (UTF-8) 
-
-
-
 @article{DBLP:journals/logcom/HannulaHKMMV25,
-	author = {Miika Hannula and Minna Hirvonen and Juha Kontinen and Yasir Mahmood and Arne Meier and Jonni Virtema},
-	date-added = {2025-06-03 10:36:37 +0200},
-	date-modified = {2025-06-03 10:36:37 +0200},
-	journal = {J. Log. Comput.},
-	number = {3},
-	title = {Logics with probabilistic team semantics and the Boolean negation},
-	volume = {35},
-	year = {2025}}
-
-@article{DBLP:journals/tocl/FichteMS24,
-	author = {Johannes Klaus Fichte and Arne Meier and Irena Schindler},
-	bibsource = {dblp computer science bibliography, https://dblp.org},
-	biburl = {https://dblp.org/rec/journals/tocl/FichteMS24.bib},
-	date-added = {2025-04-21 10:23:44 +0200},
-	date-modified = {2025-04-21 10:23:44 +0200},
-	doi = {10.1145/3655024},
-	journal = {{ACM} Trans. Comput. Log.},
-	number = {3},
-	pages = {1--24},
-	timestamp = {Sun, 19 Jan 2025 14:53:59 +0100},
-	title = {Strong Backdoors for Default Logic},
-	url = {https://doi.org/10.1145/3655024},
-	volume = {25},
-	year = {2024},
-	bdsk-url-1 = {https://doi.org/10.1145/3655024}}
+  author   = {Miika Hannula and Minna Hirvonen and Juha Kontinen and
+              Yasir Mahmood and Arne Meier and Jonni Virtema},
+  title    = {Logics with probabilistic team semantics and the {Boolean} negation},
+  journal  = {J. Log. Comput.},
+  volume   = {35}, number = {3}, year = {2025},
+  doi      = {10.1093/LOGCOM/EXAF021},
+  url      = {https://doi.org/10.1093/logcom/exaf021},
+  confversion = {DBLP:conf/jelia/HannulaHKMMV23},
+  keywords = {team semantics, dependence logic, probabilistic logic, complexity theory}
+}
 
 @article{DBLP:journals/jair/FichteHM24,
-	author = {Johannes Klaus Fichte and Markus Hecher and Arne Meier},
-	bibsource = {dblp computer science bibliography, https://dblp.org},
-	biburl = {https://dblp.org/rec/journals/jair/FichteHM24.bib},
-	date-added = {2024-08-28 14:17:56 +0200},
-	date-modified = {2025-09-09 16:41:51 +0200},
-	doi = {10.1613/JAIR.1.16210},
-	journal = {J. Artif. Intell. Res.},
-	timestamp = {Thu, 04 Jul 2024 22:05:09 +0200},
-	title = {Counting Complexity for Reasoning in Abstract Argumentation},
-	volume = {80},
-	year = {2024},
-	bdsk-url-1 = {https://doi.org/10.1613/jair.1.16210}}
+  author   = {Johannes Klaus Fichte and Markus Hecher and Arne Meier},
+  title    = {Counting Complexity for Reasoning in Abstract Argumentation},
+  journal  = {J. Artif. Intell. Res.},
+  volume   = {80}, year = {2024},
+  doi      = {10.1613/JAIR.1.16210},
+  url      = {https://doi.org/10.1613/jair.1.16210},
+  confversion = {DBLP:conf/aaai/FichteHM19},
+  keywords = {argumentation, abstract argumentation, counting complexity, parameterized complexity, complexity theory}
+}
 
-@article{Kontinen_Mahmood_Meier_Vollmer_2024,
-	author = {Kontinen, Juha and Mahmood, Yasir and Meier, Arne and Vollmer, Heribert},
-	date-added = {2024-08-19 12:49:43 +0200},
-	date-modified = {2024-08-19 12:49:43 +0200},
-	doi = {10.1017/S0960129524000033},
-	journal = {Mathematical Structures in Computer Science},
-	pages = {1--15},
-	title = {Parameterized complexity of weighted team definability},
-	year = {2024},
-	bdsk-url-1 = {https://doi.org/10.1017/S0960129524000033}}
+@article{DBLP:journals/mscs/KontinenMMV24,
+  author   = {Juha Kontinen and Yasir Mahmood and Arne Meier and Heribert Vollmer},
+  title    = {Parameterized complexity of weighted team definability},
+  journal  = {Math. Struct. Comput. Sci.},
+  volume   = {34}, number = {5}, pages = {375--389}, year = {2024},
+  doi      = {10.1017/S0960129524000033},
+  url      = {https://doi.org/10.1017/s0960129524000033},
+  keywords = {team semantics, parameterized complexity, dependence logic, W-hierarchy, first-order logic}
+}
 
-@article{10.1145/3582499,
-	abstract = {Argumentation is a well-established formalism dealing with conflicting information by generating and comparing arguments. It has been playing a major role in AI for decades. In logic-based argumentation, we explore the internal structure of an argument. Informally, a set of formulas is the support for a given claim if it is consistent, subset-minimal, and implies the claim. In such a case, the pair of the support and the claim together is called an argument. In this article, we study the propositional variants of the following three computational tasks studied in argumentation: ARG (exists a support for a given claim with respect to a given set of formulas), ARG-Check (is a given set a support for a given claim), and ARG-Rel (similarly as ARG plus requiring an additionally given formula to be contained in the support). ARG-Check is complete for the complexity class DP, and the other two problems are known to be complete for the second level of the polynomial hierarchy (Creignou&nbsp;et&nbsp;al. 2014 and Parson&nbsp;et&nbsp;al., 2003) and, accordingly, are highly intractable. Analyzing the reason for this intractability, we perform a two-dimensional classification: First, we consider all possible propositional fragments of the problem within Schaefer's framework (STOC 1978) and then study different parameterizations for each of the fragments. We identify a list of reasonable structural parameters (size of the claim, support, knowledge base) that are connected to the aforementioned decision problems. Eventually, we thoroughly draw a fine border of parameterized intractability for each of the problems showing where the problems are fixed-parameter tractable and when this exactly stops. Surprisingly, several cases are of very high intractability (para-NP and beyond).},
-	address = {New York, NY, USA},
-	articleno = {26},
-	author = {Mahmood, Yasir and Meier, Arne and Schmidt, Johannes},
-	date-added = {2023-06-27 11:30:07 +0200},
-	date-modified = {2023-06-27 11:30:07 +0200},
-	doi = {10.1145/3582499},
-	issn = {1529-3785},
-	issue_date = {July 2023},
-	journal = {ACM Trans. Comput. Logic},
-	keywords = {Parameterized complexity, Schaefer's framework, logic-based argumentation},
-	month = {may},
-	number = {3},
-	numpages = {25},
-	publisher = {Association for Computing Machinery},
-	title = {Parameterized Complexity of Logic-Based Argumentation in Schaefer's Framework},
-	url = {https://doi.org/10.1145/3582499},
-	volume = {24},
-	year = {2023},
-	bdsk-url-1 = {https://doi.org/10.1145/3582499}}
+@article{DBLP:journals/tocl/FichteMS24,
+  author   = {Johannes Klaus Fichte and Arne Meier and Irena Schindler},
+  title    = {Strong Backdoors for Default Logic},
+  journal  = {{ACM} Trans. Comput. Log.},
+  volume   = {25}, number = {3}, pages = {1--24}, year = {2024},
+  doi      = {10.1145/3655024},
+  url      = {https://doi.org/10.1145/3655024},
+  confversion = {DBLP:conf/sat/FichteMS16},
+  keywords = {default logic, parameterized complexity, backdoors, complexity theory, non-monotonic reasoning}
+}
 
-@article{Haak:2023aa,
-	abstract = {Logarithmic space-bounded complexity classes such as {\$}{\$}{$\backslash$}textbf{\{}L{\}} {\$}{\$}and {\$}{\$}{$\backslash$}textbf{\{}NL{\}} {\$}{\$}play a central role in space-bounded computation. The study of counting versions of these complexity classes have lead to several interesting insights into the structure of computational problems such as computing the determinant and counting paths in directed acyclic graphs. Though parameterised complexity theory was initiated roughly three decades ago by Downey and Fellows, a satisfactory study of parameterised logarithmic space-bounded computation was developed only in the last decade by Elberfeld, Stockhusen and Tantau (IPEC 2013, Algorithmica 2015). In this paper, we introduce a new framework for parameterised counting in logspace, inspired by the parameterised space-bounded models developed by Elberfeld, Stockhusen and Tantau. They defined the operators {\$}{\$}{$\backslash$}textbf{\{}para{\}}{\_}{\{}{$\backslash$}textbf{\{}W{\}}{\}}{\$}{\$}and {\$}{\$}{$\backslash$}textbf{\{}para{\}}{\_}{$\backslash$}beta {\$}{\$}for parameterised space complexity classes by allowing bounded nondeterminism with multiple-read and read-once access, respectively. Using these operators, they characterised the parameterised complexity of natural problems on graphs. In the spirit of the operators {\$}{\$}{$\backslash$}textbf{\{}para{\}}{\_}{\{}{$\backslash$}textbf{\{}W{\}}{\}}{\$}{\$}and {\$}{\$}{$\backslash$}textbf{\{}para{\}}{\_}{$\backslash$}beta {\$}{\$}by Stockhusen and Tantau, we introduce variants based on tail-nondeterminism, {\$}{\$}{$\backslash$}textbf{\{}para{\}}{\_}{\{}{\{}{$\backslash$}textbf{\{}W{\}}{\}}{$[$}1{$]$}{\}}{\$}{\$}and {\$}{\$}{$\backslash$}textbf{\{}para{\}}{\_}{\{}{$\backslash$}beta {\{}{$\backslash$}textbf{\{}tail{\}}{\}}{\}}{\$}{\$}. Then, we consider counting versions of all four operators and apply them to the class {\$}{\$}{$\backslash$}textbf{\{}L{\}} {\$}{\$}. We obtain several natural complete problems for the resulting classes: counting of paths in digraphs, counting first-order models for formulas, and counting graph homomorphisms. Furthermore, we show that the complexity of a parameterised variant of the determinant function for (0, 1)-matrices is {\$}{\$}{$\backslash$}{\#}{$\backslash$}textbf{\{}para{\}}{\_}{\{}{$\backslash$}beta {\{}{$\backslash$}textbf{\{}tail{\}}{\}}{\}}{$\backslash$}textbf{\{}L{\}} {\$}{\$}-hard and can be written as the difference of two functions in {\$}{\$}{$\backslash$}{\#}{$\backslash$}textbf{\{}para{\}}{\_}{\{}{$\backslash$}beta {\{}{$\backslash$}textbf{\{}tail{\}}{\}}{\}}{$\backslash$}textbf{\{}L{\}} {\$}{\$}. These problems exhibit the richness of the introduced counting classes. Our results further indicate interesting structural characteristics of these classes. For example, we show that the closure of {\$}{\$}{$\backslash$}{\#}{$\backslash$}textbf{\{}para{\}}{\_}{\{}{$\backslash$}beta {\{}{$\backslash$}textbf{\{}tail{\}}{\}}{\}}{$\backslash$}textbf{\{}L{\}} {\$}{\$}under parameterised logspace parsimonious reductions coincides with {\$}{\$}{$\backslash$}{\#}{$\backslash$}textbf{\{}para{\}}{\_}{$\backslash$}beta {$\backslash$}textbf{\{}L{\}} {\$}{\$}. In other words, in the setting of read-once access to nondeterministic bits, tail-nondeterminism coincides with unbounded nondeterminism modulo parameterised reductions. Initiating the study of closure properties of these parameterised logspace counting classes, we show that all introduced classes are closed under addition and multiplication, and those without tail-nondeterminism are closed under parameterised logspace parsimonious reductions. Finally, we want to emphasise the significance of this topic by providing a promising outlook highlighting several open problems and directions for further research.},
-	author = {Haak, Anselm and Meier, Arne and Prakash, Om and Rao, B. V. Raghavendra},
-	date = {2023/04/21},
-	date-added = {2023-06-27 11:28:33 +0200},
-	date-modified = {2025-09-09 16:42:16 +0200},
-	doi = {10.1007/s00453-023-01114-2},
-	id = {Haak2023},
-	isbn = {1432-0541},
-	journal = {Algorithmica},
-	title = {Parameterised Counting in Logspace},
-	year = {2023},
-	bdsk-url-1 = {https://doi.org/10.1007/s00453-023-01114-2}}
+@article{DBLP:journals/algorithmica/HaakMPR23,
+  author   = {Anselm Haak and Arne Meier and Om Prakash and B. V. Raghavendra Rao},
+  title    = {Parameterised Counting in Logspace},
+  journal  = {Algorithmica},
+  volume   = {85}, number = {10}, pages = {2923--2961}, year = {2023},
+  doi      = {10.1007/S00453-023-01114-2},
+  url      = {https://doi.org/10.1007/s00453-023-01114-2},
+  confversion = {DBLP:conf/stacs/HaakM0R21},
+  keywords  = {counting complexity, parameterized complexity, logspace, bounded nondeterminism, complexity theory}
+}
 
-@article{10.1093/logcom/exac070,
-	author = {Kontinen, Juha and Meier, Arne and Mahmood, Yasir},
-	date-added = {2022-11-17 21:20:33 +0200},
-	date-modified = {2023-08-22 15:49:04 +0800},
-	doi = {10.1093/logcom/exac070},
-	eprint = {https://academic.oup.com/logcom/advance-article-pdf/doi/10.1093/logcom/exac070/47041664/exac070.pdf},
-	issn = {0955-792X},
-	journal = {J. Log. Comput.},
-	title = {{A parameterized view on the complexity of dependence and independence logic}},
-	url = {https://doi.org/10.1093/logcom/exac070},
-	year = {2022},
-	bdsk-url-1 = {https://doi.org/10.1093/logcom/exac070}}
-
-@article{DBLP:journals/apal/HaakMMV22,
-	author = {Anselm Haak and Arne Meier and Fabian M{\"{u}}ller and Heribert Vollmer},
-	date-added = {2022-11-17 21:19:35 +0200},
-	date-modified = {2022-11-17 21:19:35 +0200},
-	journal = {Ann. Pure Appl. Log.},
-	number = {10},
-	pages = {103163},
-	title = {Enumerating teams in first-order team logics},
-	volume = {173},
-	year = {2022}}
+@article{DBLP:journals/tocl/0002M023,
+  author   = {Yasir Mahmood and Arne Meier and Johannes Schmidt},
+  title    = {Parameterized Complexity of Logic-based Argumentation in {Schaefer's} Framework},
+  journal  = {{ACM} Trans. Comput. Log.},
+  volume   = {24}, number = {3}, pages = {26:1--26:25}, year = {2023},
+  doi      = {10.1145/3582499},
+  url      = {https://doi.org/10.1145/3582499},
+  confversion = {DBLP:conf/aaai/0002M021},
+  keywords = {argumentation, parameterized complexity, satisfiability, Post's lattice, Schaefer's framework, complexity theory, logic-based argumentation}
+}
 
 @article{DBLP:journals/amai/MahmoodM22,
-	author = {Yasir Mahmood and Arne Meier},
-	date-added = {2022-03-31 12:29:35 +0200},
-	date-modified = {2022-03-31 12:29:35 +0200},
-	journal = {Ann. Math. Artif. Intell.},
-	number = {2},
-	pages = {271--296},
-	title = {Parameterised complexity of model checking and satisfiability in propositional dependence logic},
-	volume = {90},
-	year = {2022}}
+  author   = {Yasir Mahmood and Arne Meier},
+  title    = {Parameterised complexity of model checking and satisfiability
+              in propositional dependence logic},
+  journal  = {Ann. Math. Artif. Intell.},
+  doi      = {10.1007/S10472-021-09730-W},
+  volume   = {90}, number = {2-3}, pages = {271--296}, year = {2022},
+  confversion = {DBLP:conf/foiks/0002M20},
+  keywords  = {propositional, dependence logic, parameterized complexity, model checking, satisfiability, complexity theory}
+}
+
+@article{DBLP:journals/apal/HaakMMV22,
+  author   = {Anselm Haak and Arne Meier and Fabian M{\"{u}}ller and Heribert Vollmer},
+  title    = {Enumerating teams in first-order team logics},
+  journal  = {Ann. Pure Appl. Log.},
+  doi      = {10.1016/J.APAL.2022.103163},
+  volume   = {173}, number = {10}, pages = {103163}, year = {2022},
+  keywords = {team semantics, enumeration, first-order logic, complexity theory}
+}
+
+@article{DBLP:journals/logcom/KontinenMM22,
+  author   = {Juha Kontinen and Arne Meier and Yasir Mahmood},
+  title    = {A parameterized view on the complexity of dependence and independence logic},
+  journal  = {J. Log. Comput.},
+  doi      = {10.1093/LOGCOM/EXAC070},
+  volume   = {32}, number = {8}, pages = {1624--1644}, year = {2022},
+  confversion = {DBLP:conf/lfcs/KontinenMM22},
+  keywords = {dependence logic, parameterized complexity, team semantics, first-order logic}
+}
 
 @article{DBLP:journals/logcom/MahmoodMS21,
-	author = {Yasir Mahmood and Arne Meier and Johannes Schmidt},
-	date-added = {2022-03-31 12:29:30 +0200},
-	date-modified = {2022-03-31 12:29:30 +0200},
-	journal = {J. Log. Comput.},
-	number = {1},
-	pages = {266--296},
-	title = {Parameterized complexity of abduction in Schaefer's framework},
-	volume = {31},
-	year = {2021}}
+  author   = {Yasir Mahmood and Arne Meier and Johannes Schmidt},
+  title    = {Parameterized complexity of abduction in {Schaefer's} framework},
+  journal  = {J. Log. Comput.},
+  doi      = {10.1093/LOGCOM/EXAA079},
+  volume   = {31}, number = {1}, pages = {266--296}, year = {2021},
+  confversion = {DBLP:conf/lfcs/0002M020},
+  keywords  = {parameterized complexity, satisfiability, abduction, complexity theory, Post's lattice, Schaefer's framework, non-monotonic reasoning}
+}
 
 @article{DBLP:journals/algorithms/Meier20,
-	author = {Arne Meier},
-	date-added = {2022-03-31 12:29:26 +0200},
-	date-modified = {2022-03-31 12:29:26 +0200},
-	journal = {Algorithms},
-	number = {5},
-	pages = {122},
-	title = {Incremental {FPT} Delay},
-	volume = {13},
-	year = {2020}}
+  author   = {Arne Meier},
+  title    = {Incremental {FPT} Delay},
+  journal  = {Algorithms},
+  doi      = {10.3390/A13050122},
+  volume   = {13}, number = {5}, pages = {122}, year = {2020},
+  keywords = {enumeration, parameterized complexity, complexity theory, function complexity, FPT, delay}
+}
 
 @article{DBLP:journals/tocl/HellaKMV20,
-	author = {Lauri Hella and Antti Kuusisto and Arne Meier and Heribert Vollmer},
-	date-added = {2022-03-31 12:29:22 +0200},
-	date-modified = {2022-03-31 12:29:22 +0200},
-	journal = {{ACM} Trans. Comput. Log.},
-	number = {1},
-	pages = {7:1--7:18},
-	title = {Satisfiability of Modal Inclusion Logic: Lax and Strict Semantics},
-	volume = {21},
-	year = {2020}}
+  author   = {Lauri Hella and Antti Kuusisto and Arne Meier and Heribert Vollmer},
+  title    = {Satisfiability of Modal Inclusion Logic: Lax and Strict Semantics},
+  journal  = {{ACM} Trans. Comput. Log.},
+  doi      = {10.1145/3356043},
+  volume   = {21}, number = {1}, pages = {7:1--7:18}, year = {2020},
+  confversion = {DBLP:conf/mfcs/HellaKMV15},
+  keywords  = {modal logic, inclusion logic, team semantics, complexity theory}
+}
 
 @article{DBLP:journals/acta/KrebsMM19,
-	author = {Andreas Krebs and Arne Meier and Martin Mundhenk},
-	date-added = {2022-03-31 12:29:18 +0200},
-	date-modified = {2022-03-31 12:29:18 +0200},
-	journal = {Acta Informatica},
-	number = {6},
-	pages = {487--519},
-	title = {The model checking fingerprints of {CTL} operators},
-	volume = {56},
-	year = {2019}}
+  author   = {Andreas Krebs and Arne Meier and Martin Mundhenk},
+  title    = {The model checking fingerprints of {CTL} operators},
+  journal  = {Acta Informatica},
+  doi      = {10.1007/S00236-018-0326-9},
+  volume   = {56}, number = {6}, pages = {487--519}, year = {2019},
+  confversion = {DBLP:conf/time/KrebsMM15},
+  keywords  = {model checking, CTL, modal logic, complexity theory, Post's lattice}
+}
 
 @article{DBLP:journals/algorithmica/MeierORS19,
-	author = {Arne Meier and Sebastian Ordyniak and M. S. Ramanujan and Irena Schindler},
-	date-added = {2022-03-31 12:29:15 +0200},
-	date-modified = {2022-03-31 12:29:15 +0200},
-	journal = {Algorithmica},
-	number = {2},
-	pages = {476--496},
-	title = {Backdoors for Linear Temporal Logic},
-	volume = {81},
-	year = {2019}}
+  author   = {Arne Meier and Sebastian Ordyniak and M. S. Ramanujan and Irena Schindler},
+  title    = {Backdoors for Linear Temporal Logic},
+  journal  = {Algorithmica},
+  doi      = {10.1007/S00453-018-0515-5},
+  volume   = {81}, number = {2}, pages = {476--496}, year = {2019},
+  confversion = {DBLP:conf/iwpec/MeierOSS16},
+  keywords  = {temporal logic, parameterized complexity, backdoors, complexity theory, LTL}
+}
 
 @article{DBLP:journals/algorithms/CreignouKMMOV19,
-	author = {Nadia Creignou and Ra{\"{\i}}da Ktari and Arne Meier and Julian{-}Steffen M{\"{u}}ller and Fr{\'{e}}d{\'{e}}ric Olive and Heribert Vollmer},
-	date-added = {2022-03-31 12:29:11 +0200},
-	date-modified = {2022-03-31 12:29:11 +0200},
-	journal = {Algorithms},
-	number = {9},
-	pages = {189},
-	title = {Parameterised Enumeration for Modification Problems},
-	volume = {12},
-	year = {2019}}
+  author   = {Nadia Creignou and Ra{\"{i}}da Ktari and Arne Meier and
+              Julian{-}Steffen M{\"{u}}ller and Fr{\'{e}}d{\'{e}}ric Olive and
+              Heribert Vollmer},
+  title    = {Parameterised Enumeration for Modification Problems},
+  doi      = {10.3390/A12090189},
+  journal  = {Algorithms},
+  volume   = {12}, number = {9}, pages = {189}, year = {2019},
+  confversion = {DBLP:conf/lata/CreignouKMMOV15},
+  keywords  = {enumeration, parameterized complexity, complexity theory}
+}
 
 @article{DBLP:journals/logcom/HellaKMV19,
-	author = {Lauri Hella and Antti Kuusisto and Arne Meier and Jonni Virtema},
-	date-added = {2022-03-31 12:29:06 +0200},
-	date-modified = {2022-03-31 12:29:06 +0200},
-	journal = {J. Log. Comput.},
-	number = {5},
-	pages = {605--630},
-	title = {Model checking and validity in propositional and modal inclusion logics},
-	volume = {29},
-	year = {2019}}
+  author   = {Lauri Hella and Antti Kuusisto and Arne Meier and Jonni Virtema},
+  title    = {Model checking and validity in propositional and modal inclusion logics},
+  journal  = {J. Log. Comput.},
+  doi      = {10.1093/LOGCOM/EXZ008},
+  volume   = {29}, number = {5}, pages = {605--630}, year = {2019},
+  confversion = {DBLP:conf/mfcs/HellaKMV17},
+  keywords  = {modal logic, inclusion logic, model checking, team semantics, complexity theory, validity}
+}
 
 @article{DBLP:journals/amai/DurandHKMV18,
-	author = {Arnaud Durand and Miika Hannula and Juha Kontinen and Arne Meier and Jonni Virtema},
-	date-added = {2022-03-31 12:29:02 +0200},
-	date-modified = {2022-03-31 12:29:02 +0200},
-	journal = {Ann. Math. Artif. Intell.},
-	number = {3-4},
-	pages = {297--320},
-	title = {Approximation and dependence via multiteam semantics},
-	volume = {83},
-	year = {2018}}
+  author   = {Arnaud Durand and Miika Hannula and Juha Kontinen and
+              Arne Meier and Jonni Virtema},
+  title    = {Approximation and dependence via multiteam semantics},
+  doi      = {10.1007/S10472-017-9568-4},
+  journal  = {Ann. Math. Artif. Intell.},
+  volume   = {83}, number = {3-4}, pages = {297--320}, year = {2018},
+  confversion = {DBLP:conf/foiks/0001HKMV16},
+  keywords  = {team semantics, dependence logic, probabilistic logic, complexity theory, first-order logic}
+}
 
 @article{DBLP:journals/mst/CreignouMMSV17,
-	author = {Nadia Creignou and Arne Meier and Julian{-}Steffen M{\"{u}}ller and Johannes Schmidt and Heribert Vollmer},
-	bibsource = {dblp computer science bibliography, https://dblp.org},
-	biburl = {https://dblp.org/rec/bib/journals/mst/CreignouMMSV17},
-	date-added = {2018-03-22 16:05:51 +0000},
-	date-modified = {2025-09-09 16:42:28 +0200},
-	doi = {10.1007/s00224-016-9702-4},
-	journal = {Theory Comput. Syst.},
-	number = {4},
-	pages = {737--758},
-	timestamp = {Sun, 28 May 2017 13:18:25 +0200},
-	title = {Paradigms for Parameterized Enumeration},
-	volume = {60},
-	year = {2017},
-	bdsk-url-1 = {https://doi.org/10.1007/s00224-016-9702-4}}
+  author   = {Nadia Creignou and Arne Meier and Julian{-}Steffen M{\"{u}}ller and
+              Johannes Schmidt and Heribert Vollmer},
+  title    = {Paradigms for Parameterized Enumeration},
+  doi      = {10.1007/S00224-016-9702-4},
+  journal  = {Theory Comput. Syst.},
+  volume   = {60}, number = {4}, pages = {737--758}, year = {2017},
+  confversion = {DBLP:conf/mfcs/CreignouMMSV13},
+  keywords  = {enumeration, parameterized complexity, complexity theory}
+}
 
 @article{DBLP:journals/tocl/LuckMS17,
-	author = {Martin L{\"{u}}ck and Arne Meier and Irena Schindler},
-	bibsource = {dblp computer science bibliography, https://dblp.org},
-	biburl = {https://dblp.org/rec/bib/journals/tocl/LuckMS17},
-	date-added = {2018-03-22 16:05:46 +0000},
-	date-modified = {2018-03-22 16:05:46 +0000},
-	doi = {10.1145/3001835},
-	journal = {{ACM} Trans. Comput. Log.},
-	number = {1},
-	pages = {1:1--1:32},
-	timestamp = {Thu, 20 Apr 2017 18:00:17 +0200},
-	title = {Parametrised Complexity of Satisfiability in Temporal Logic},
-	url = {http://doi.acm.org/10.1145/3001835},
-	volume = {18},
-	year = {2017},
-	bdsk-url-1 = {http://doi.acm.org/10.1145/3001835},
-	bdsk-url-2 = {https://dx.doi.org/10.1145/3001835}}
+  author   = {Martin L{\"{u}}ck and Arne Meier and Irena Schindler},
+  title    = {Parametrised Complexity of Satisfiability in Temporal Logic},
+  journal  = {{ACM} Trans. Comput. Log.},
+  doi      = {10.1145/3001835},
+  volume   = {18}, number = {1}, pages = {1:1--1:32}, year = {2017},
+  confversion = {DBLP:conf/lata/LuckMS15},
+  keywords  = {temporal logic, parameterized complexity, satisfiability, complexity theory}
+}
 
-@incollection{gcoas,
-	author = {Arne Meier},
-	booktitle = {{Recent Progress in the Boolean Domain}},
-	date-added = {2017-03-22 14:57:38 +0000},
-	date-modified = {2017-03-22 14:57:38 +0000},
-	editor = {Bernd Steinbach},
-	publisher = {Cambridge Scholars Publishing},
-	title = {{Generalized Complexity of {ALC} Subsumption}},
-	year = {2014}}
+@article{DBLP:journals/aml/MeierS0TV15,
+  author   = {Arne Meier and Irina Schindler and Johannes Schmidt and
+              Michael Thomas and Heribert Vollmer},
+  title    = {On the parameterized complexity of non-monotonic logics},
+  doi      = {10.1007/S00153-015-0435-X},
+  journal  = {Arch. Math. Log.},
+  volume   = {54}, number = {5-6}, pages = {685--710}, year = {2015},
+  keywords = {default logic, parameterized complexity, non-monotonic reasoning, complexity theory, abduction, autoepistemic logic, circumscription, MSO}
+}
 
-@article{msstv15,
-	author = {Arne Meier and Irina Schindler and Johannes Schmidt and Michael Thomas and Heribert Vollmer},
-	date-added = {2015-07-21 12:06:40 +0000},
-	date-modified = {2017-03-22 14:46:06 +0000},
-	doi = {10.1007/s00153-015-0435-x},
-	journal = {Archive for Mathematical Logic},
-	number = {5},
-	pages = {685--710},
-	title = {On the parameterized complexity of non-monotonic logics},
-	volume = {54},
-	year = {2015},
-	bdsk-url-1 = {http://dx.doi.org/10.1007/s00153-015-0435-x}}
+@article{DBLP:journals/ijfcs/MeierTVM15,
+  author   = {Arne Meier and Michael Thomas and Heribert Vollmer and Martin Mundhenk},
+  title    = {Erratum: The Complexity of Satisfiability for Fragments of {CTL} and {CTL*}},
+  journal  = {Int. J. Found. Comput. Sci.},
+  doi      = {10.1142/S012905411592001X},
+  url      = {https://doi.org/10.1142/S012905411592001X},
+  volume   = {26}, number = {8}, pages = {1189}, year = {2015},
+  erratumof = {DBLP:journals/ijfcs/MeierTVM09},
+  keywords = {modal logic, CTL, satisfiability, complexity theory, Post's lattice, temporal logic}
+}
 
-@article{ms13sitamc,
-	author = {Arne Meier and Thomas Schneider},
-	date-added = {2013-02-08 09:52:42 +0000},
-	date-modified = {2017-05-29 07:55:30 +0000},
-	doi = {10.1016/j.tcs.2013.02.009},
-	journal = {Theor. Comput. Sci.},
-	pages = {55-73},
-	title = {{Generalized Satisfiability for the Description Logic {ALC}}},
-	volume = {505},
-	year = {2013},
-	bdsk-url-1 = {http://dx.doi.org/10.1016/j.tcs.2013.02.009}}
+@article{DBLP:journals/tcs/Meier013,
+  author   = {Arne Meier and Thomas Schneider},
+  title    = {Generalized satisfiability for the description logic {ALC}},
+  journal  = {Theor. Comput. Sci.},
+  doi      = {10.1016/J.TCS.2013.02.009},
+  volume   = {505}, pages = {55--73}, year = {2013},
+  confversion = {DBLP:conf/tamc/MeierS11},
+  keywords  = {description logic, ALC, satisfiability, complexity theory, Post's lattice}
+}
 
-@article{Meier:2012fk,
-	author = {Arne Meier and Julian-Steffen M{\"u}ller and Martin Mundhenk and Heribert Vollmer},
-	date-added = {2013-01-11 12:07:14 +0000},
-	date-modified = {2017-03-22 14:53:30 +0000},
-	journal = {Bulletin of the EATCS},
-	pages = {49--89},
-	title = {Complexity of Model Checking for Logics over Kripke models},
-	volume = {108},
-	year = {2012}}
+@article{DBLP:journals/eatcs/MeierMMV12,
+  author   = {Arne Meier and Julian{-}Steffen M{\"{u}}ller and
+              Martin Mundhenk and Heribert Vollmer},
+  title    = {Complexity of Model Checking for Logics over {Kripke} models},
+  journal  = {Bull. {EATCS}},
+  volume   = {108}, pages = {49--89}, year = {2012},
+  url      = {https://eatcs.org/images/bulletin/beatcs108.pdf},
+  keywords = {model checking, modal logic, CTL, Post's lattice, complexity theory, temporal logic, hybrid logic, intuistionistic logic, LTL, CTL*, modal dependence logic, modal logic, dependence logic}
+}
 
-@article{BeMeThVo10,
-	author = {Olaf Beyersdorff and Arne Meier and Michael Thomas and Heribert Vollmer},
-	date-modified = {2017-03-22 14:55:19 +0000},
-	journal = {Journal of Logic and Computation},
-	number = {3},
-	pages = {587--604},
-	title = {{The Complexity of Reasoning for Fragments of Default Logic}},
-	volume = {22},
-	year = {2012}}
+@article{DBLP:journals/logcom/BeyersdorffMTV12,
+  author   = {Olaf Beyersdorff and Arne Meier and Michael Thomas and Heribert Vollmer},
+  title    = {The complexity of reasoning for fragments of default logic},
+  journal  = {J. Log. Comput.},
+  volume   = {22}, number = {3}, pages = {587--604}, year = {2012},
+  doi      = {10.1093/LOGCOM/EXQ061},
+  url      = {https://doi.org/10.1093/logcom/exq061},
+  confversion = {DBLP:conf/sat/BeyersdorffMTV09},
+  keywords  = {default logic, satisfiability, non-monotonic reasoning, complexity theory, Post's lattice}
+}
 
-@article{bmmstv11,
-	author = {Olaf Beyersdorff and Arne Meier and Martin Mundhenk and Thomas Schneider and Michael Thomas and Heribert Vollmer},
-	date-modified = {2017-03-22 14:53:52 +0000},
-	journal = {Logical Methods in Computer Science},
-	number = {2},
-	title = {{Model Checking CTL is almost always inherently sequential}},
-	volume = {7},
-	year = {2011}}
+@article{DBLP:journals/tocl/CreignouMVT12,
+  author   = {Nadia Creignou and Arne Meier and Heribert Vollmer and Michael Thomas},
+  title    = {The Complexity of Reasoning for Fragments of Autoepistemic Logic},
+  journal  = {{ACM} Trans. Comput. Log.},
+  volume   = {13}, number = {2}, pages = {17:1--17:22}, year = {2012},
+  doi      = {10.1145/2159531.2159539},
+  url      = {https://doi.org/10.1145/2159531.2159539},
+  keywords  = {non-monotonic reasoning, satisfiability, parameterized complexity, complexity theory, autoepistemic logic, Post's lattice}
+}
 
-@article{Beyersdorff20091071,
-	author = {Olaf Beyersdorff and Arne Meier and Michael Thomas and Heribert Vollmer},
-	date-modified = {2017-03-22 14:54:50 +0000},
-	journal = {Information Processing Letters},
-	number = {18},
-	pages = {1071--1077},
-	title = {{The Complexity of Propositional Implication}},
-	volume = {109},
-	year = {2009}}
+@article{DBLP:journals/aml/BeyersdorffMMTV11,
+  author   = {Olaf Beyersdorff and Arne Meier and Sebastian M{\"{u}}ller and
+              Michael Thomas and Heribert Vollmer},
+  title    = {Proof complexity of propositional default logic},
+  journal  = {Arch. Math. Log.},
+  volume   = {50}, number = {7-8}, pages = {727--742}, year = {2011},
+  doi      = {10.1007/S00153-011-0245-8},
+  url      = {https://doi.org/10.1007/s00153-011-0245-8},
+  confversion = {DBLP:conf/sat/BeyersdorffMMTV10},
+  keywords  = {default logic, proof complexity, satisfiability, non-monotonic reasoning}
+}
 
-@article{Beyersdorff:2011fx,
-	author = {Olaf Beyersdorff and Arne Meier and Sebastian M{\"u}ller and Michael Thomas and Heribert Vollmer},
-	date-modified = {2017-03-22 14:54:39 +0000},
-	journal = {Archive for Mathematical Logic},
-	month = jul,
-	number = {7-8},
-	pages = {727--742},
-	title = {{Proof complexity of propositional default logic}},
-	volume = {50},
-	year = {2011}}
+@article{DBLP:journals/corr/abs-1103-4990,
+  author   = {Olaf Beyersdorff and Arne Meier and Martin Mundhenk and
+              Thomas Schneider and Michael Thomas and Heribert Vollmer},
+  title    = {Model Checking {CTL} is Almost Always Inherently Sequential},
+  journal  = {Log. Methods Comput. Sci.},
+  volume   = {7}, number = {2}, year = {2011},
+  doi      = {10.2168/LMCS-7(2:12)2011},
+  url      = {https://doi.org/10.2168/LMCS-7(2:12)2011},
+  confversion = {DBLP:conf/time/BeyersdorffMTVMS09},
+  keywords  = {model checking, CTL, circuit complexity, complexity theory, Post's lattice, temporal logic}
+}
 
-@article{MeMuScThWeWe10,
-	annote = {A preliminary version appeared in: Proc. 34th International Symposium on Mathematical Foundations of Computer Science, Vol. 5754 of Springer Lecture Notes in Computer Science, pp. 587-599, 2009.},
-	author = {Arne Meier and Martin Mundhenk and Thomas Schneider and Michael Thomas and Volker Weber and Felix Weiss},
-	date-modified = {2017-03-22 14:55:50 +0000},
-	journal = {Journal of Applied Logic},
-	number = {4},
-	pages = {409--421},
-	title = {{The Complexity of Satisfiability for Fragments of Hybrid Logic -- Part I}},
-	volume = {8},
-	year = {2010}}
+@article{DBLP:journals/japll/MeierMSTWW10,
+  author   = {Arne Meier and Martin Mundhenk and Thomas Schneider and
+              Michael Thomas and Volker Weber and Felix Weiss},
+  title    = {The complexity of satisfiability for fragments of hybrid logic - {Part I}},
+  journal  = {J. Appl. Log.},
+  volume   = {8}, number = {4}, pages = {409--421}, year = {2010},
+  doi      = {10.1016/J.JAL.2010.08.001},
+  url      = {https://doi.org/10.1016/j.jal.2010.08.001},
+  confversion = {DBLP:conf/mfcs/MeierMSTWW09},
+  keywords  = {modal logic, hybrid logic, satisfiability, Post's lattice, complexity theory}
+}
 
-@article{Creignou:2012fq,
-	author = {Nadia Creignou and Arne Meier and Michael Thomas and Heribert Vollmer},
-	date-modified = {2017-03-22 14:55:06 +0000},
-	journal = {ACM Transactions on Computational Logic},
-	month = apr,
-	number = {2},
-	pages = {1--22},
-	title = {{The Complexity of Reasoning for Fragments of Autoepistemic Logic}},
-	volume = {13},
-	year = {2012}}
+@article{DBLP:journals/ijfcs/MeierTVM09,
+  author   = {Arne Meier and Michael Thomas and Heribert Vollmer and Martin Mundhenk},
+  title    = {The Complexity of Satisfiability for Fragments of {CTL} and {CTL*}},
+  journal  = {Int. J. Found. Comput. Sci.},
+  volume   = {20}, number = {5}, pages = {901--918}, year = {2009},
+  doi      = {10.1142/S0129054109006954},
+  url      = {https://doi.org/10.1142/S0129054109006954},
+  confversion = {DBLP:journals/entcs/MeierMTV08},
+  erratum   = {DBLP:journals/ijfcs/MeierTVM15},
+  keywords  = {modal logic, CTL, CTL*, satisfiability, complexity theory, Post's lattice, temporal logic}
+}
 
-@article{Meier2009,
-	author = {Arne Meier and Martin Mundhenk and Michael Thomas and Heribert Vollmer},
-	date-modified = {2017-03-22 14:48:46 +0000},
-	journal = {International Journal of Foundations of Computer Science},
-	number = {05},
-	pages = {901--918},
-	title = {{The Complexity of Satisfiability for Fragments of {CTL} and {CTL}*}},
-	volume = {20},
-	year = {2009}}
+@article{DBLP:journals/ipl/BeyersdorffMTV09,
+  author   = {Olaf Beyersdorff and Arne Meier and Michael Thomas and Heribert Vollmer},
+  title    = {The complexity of propositional implication},
+  journal  = {Inf. Process. Lett.},
+  volume   = {109}, number = {18}, pages = {1071--1077}, year = {2009},
+  doi      = {10.1016/J.IPL.2009.06.015},
+  url      = {https://doi.org/10.1016/j.ipl.2009.06.015},
+  keywords = {satisfiability, proof complexity, implication, Post's lattice, complexity theory}
+}

@@ -1,15 +1,16 @@
-# Basic Information 
+# Basic Information
 title: Arne Meier
 position: Professor
-affiliation: Leibniz Universität Hannover, Institut für Theoretische Informatik
+affiliation: Leibniz University Hannover, Institute for Theoretical Computer Science, Research Group Algorithms
+affiliation_link: https://www.thi.uni-hannover.de/en/rg-algo
 email: meier (at) thi (dot) uni-hannover (dot) de
 
 # Search Engine Optimization (SEO)
-# The following information is used to improve the website traffic from search engines, e.g., Google.
+description: "Professor at Leibniz Universität Hannover. Research in complexity theory,
+  logic in computer science, parameterised complexity, enumeration, and argumentation."
 keywords: complexity algorithms enumeration logic
 
-# Links 
-# If you don't need one of them, you may delete the corresponding line.
+# Links
 google_scholar: https://scholar.google.de/citations?user=iHkXyuoAAAAJ&hl=de
 #cv_link: assets/files/curriculum_vitae.pdf
 github_link: https://github.com/ArneMeier
@@ -17,25 +18,16 @@ github_link: https://github.com/ArneMeier
 mastodon: https://mastodon.social/@ArneM
 dblp: https://dblp.uni-trier.de/pid/38/5700.html
 
-# Images (e.g., your profile picture and your website's favicon) 
-# "favicon" and "favicon_dark" are used for the light and dark modes, respectively. 
-avatar: ./assets/img/arne.jpg
+# Images
+avatar: /assets/img/arne.jpg
 #favicon: ./assets/img/favicon.png
 #favicon_dark: ./assets/img/favicon-dark.png
 
 # Footnote
-# You may use the option to disable the footnote, "Powered by Jekyll and Minimal Light theme."
 enable_footnote: true
 
 # Google Analytics ID
-# Please remove this if you don't use Google Analytics
 google_analytics: G-5N6XVJ0Z4M
-
-# Use this project as a remote theme for GitHub Pages
-# See the guide here: https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/adding-a-theme-to-your-github-pages-site-using-jekyll
-remote_theme: yaoyao-liu/minimal-light
-
-github: [metadata]
 
 
 # The following files will be removed from the generated website.
@@ -48,3 +40,26 @@ exclude:
   - README_de.md
   - LICENSE
   - minimal-light.gemspec
+
+# Jekyll Scholar
+scholar:
+  style: apa
+  locale: en
+  sort_by: year
+  order: descending
+  source: ./bibliography
+  bibliography_list_tag: ol
+  bibliography_item_tag: li     # jekyll-scholar wraps each entry in <li>;
+                                 # bib.html outputs only the inner <div class="pub-item">
+  bibliography_template: bib    # uses _layouts/bib.html for each entry
+  replace_strings: true
+  join_strings:    true
+
+  details_dir:    bibliography
+  details_layout: bibtex.html
+  details_link:   Details
+
+  query: "@*"
+
+plugins:
+  - jekyll-scholar
