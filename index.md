@@ -48,7 +48,7 @@ I obtained my Bachelor's and Master's Degrees in Computer Science as well as my 
   <li>
     <div class="hfillstretch">
       <div><autocolor>[<a href="https://www.dfg.de" target="_blank">DFG</a>] <a href="https://gepris.dfg.de/gepris/projekt/511769688" target="_blank">Team Logics: New Bridges to Database Repairs</a></autocolor></div>
-      <div><font color="darkgreen">[05'23 &minus; 06'26]</font></div>
+      <div><font color="darkgreen">[05'23 &minus; 12'26]</font></div>
     </div>
   </li>
 </ul>

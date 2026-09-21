@@ -5,14 +5,18 @@
 export LANG    := en_US.UTF-8
 export LC_ALL  := en_US.UTF-8
 
-.PHONY: build serve clean
+.PHONY: install build serve clean
+
+## install : Install required dependencies from Gemfile if missing
+install:
+	@bundle check > /dev/null 2>&1 || bundle install
 
 ## build : Generate the static site into _site/
-build:
+build: install
 	bundle exec jekyll build
 
 ## serve : Start local dev server at http://localhost:4000
-serve:
+serve: install
 	bundle exec jekyll serve --livereload
 
 ## clean : Remove the generated _site/ directory
