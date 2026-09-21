@@ -28,7 +28,12 @@ I obtained my Bachelor's and Master's Degrees in Computer Science as well as my 
 
 ## Recent Papers
 
+### Conference or Workshop
+
 {% bibliography --file My_Conference_Publications --max 5 --template news-bib %}
+
+### Journal
+{% bibliography --file My_Journal_Publications --max 2 --template news-bib %}
 
 <p style="margin-top: 0.5rem;">
   <a href="/publications/" class="view-all-link">View all publications &rarr;</a>
