@@ -1,6 +1,7 @@
 ---
 layout: homepage
 title: Impressum
+permalink: /impressum/
 ---
 
 ## Impressum
