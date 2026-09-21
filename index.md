@@ -14,7 +14,7 @@ I obtained my Bachelor's and Master's Degrees in Computer Science as well as my 
 - **Artificial Intelligence:** logical foundations
 - **Complexity Theory:** algorithmic complexity, parameterised complexity
 - **Enumeration:** parameterised enumeration, enumeration complexity
-- **Logic in Computer Science:** non-classical, non-monotonic, team, temporal, hybrid, modal, default, and autoepistemic logic
+- **Logic in Computer Science:** non-classical, non-monotonic, team, temporal, hybrid, modal, default, preferential, and autoepistemic logic
 
 ## News
 
