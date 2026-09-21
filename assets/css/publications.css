@@ -292,6 +292,11 @@ em.pub-venue { font-style: italic; }
   text-decoration: none !important;
   white-space: nowrap;
   transition: opacity 0.15s, transform 0.1s;
+  /* Reset für <button> Elemente */
+  border: none;
+  font-family: inherit;
+  cursor: pointer;
+  line-height: inherit;
 }
 
 .pub-badge:hover {
@@ -299,9 +304,13 @@ em.pub-venue { font-style: italic; }
   transform: translateY(-1px);
 }
 
-.badge-doi {
-  background: var(--pub-badge-doi-bg);
+button.badge-bibtex,
+.badge-doi,
+.badge-bibtex {
+  background: var(--pub-badge-doi-bg) !important;
   color: var(--pub-badge-doi-fg) !important;
+  border: none !important;
+  outline: none;
 }
 
 .badge-link {
@@ -492,9 +501,6 @@ em.pub-venue { font-style: italic; }
 
 /* news-bib: <li> from jekyll-scholar contains a <div class="news-pub-item"> */
 ol.bibliography li .news-pub-item {
-  display: flex;
-  align-items: baseline;
-  gap: 0.55rem;
   padding: 0.35rem 0;
 }
 
@@ -544,3 +550,36 @@ a.view-all-link {
   font-weight: 500;
 }
 a.view-all-link:hover { text-decoration: underline; }
+
+/* ── dblp-Style @-Button für Recent Papers (news-bib.html) ── */
+.news-bib-btn {
+  background: transparent;
+  color: var(--pub-accent);
+  border: 1px solid var(--pub-search-border);
+  border-radius: 4px;
+  padding: 0.1rem 0.45rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.news-bib-btn:hover {
+  background: var(--pub-accent-light);
+  border-color: var(--pub-accent);
+}
+
+@media (prefers-color-scheme: dark) {
+  .news-bib-btn {
+    color: var(--pub-accent);
+    border-color: var(--pub-search-border);
+  }
+  .news-bib-btn:hover {
+    background: var(--pub-accent-light);
+  }
+}

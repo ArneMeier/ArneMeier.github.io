@@ -167,105 +167,453 @@ I obtained my Bachelor’s and Master’s Degrees in Computer Science as well as
 
 
 
-<div class="news-pub-item">
-  <span class="news-pub-year">2026</span>
-  <span class="news-pub-body">
-    
-      <a href="https://doi.org/10.1007/978-3-032-33486-2_8" class="news-pub-title" target="_blank" rel="noopener">A Circuit-Theoretic View of FO over Semirings</a>
-    
-    <span class="news-pub-venue">
+<div class="news-pub-item" style="display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; width: 100%;">
+  
+  <!-- Linker Bereich: Jahr + Titel + Venue -->
+  <div style="display: flex; align-items: baseline; gap: 0.75rem; flex: 1; min-width: 0;">
+    <span class="news-pub-year" style="flex-shrink: 0;">2026</span>
+    <div class="news-pub-body" style="flex: 1; min-width: 0;">
       
-        &mdash; <em>Logic, Language, Information, and Computation - 32nd International
+        <a href="https://doi.org/10.1007/978-3-032-33486-2_8" class="news-pub-title" target="_blank" rel="noopener">A Circuit-Theoretic View of FO over Semirings</a>
+      
+      <span class="news-pub-venue">
+        
+          &mdash; <em>Logic, Language, Information, and Computation - 32nd International
                   Workshop, WoLLIC 2026, Lima, Peru, August 3-6, 2026, Proceedings</em>
-      
-    </span>
-  </span>
+        
+      </span>
+
+      <!-- Ausklapp-Bereich mit Klick-zum-Kopieren Funktion -->
+      <div id="news-bib-DBLP:conf/wollic/BarlagFHHHHKMS26" class="bibtex-container" style="display: none; margin-top: 10px; position: relative;">
+        <span id="copy-feedback-DBLP:conf/wollic/BarlagFHHHHKMS26" style="display: none; position: absolute; top: 6px; right: 10px; font-size: 0.7rem; background: var(--pub-accent, #043361); color: #fff; padding: 2px 6px; border-radius: 3px; z-index: 10;">Copied!</span>
+        <pre onclick="copyBibtex('news-bib-DBLP:conf/wollic/BarlagFHHHHKMS26')" title="Klicken zum Markieren &amp; Kopieren" style="background: var(--pub-control-bg, #f8fafc); padding: 12px 14px; border-radius: 6px; border: 1px solid var(--pub-border, #e2e8f0); font-family: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace; font-size: 0.78rem; line-height: 1.45; color: #334155; overflow-x: auto; white-space: pre; margin: 0; cursor: pointer; user-select: all;">@inproceedings{DBLP:conf/wollic/BarlagFHHHHKMS26,
+  author = {Barlag, Timon and Fr{\"{o}}hlich, Nicolas and Hankala, Teemu and Hannula, Miika Juhani and Hirvonen, Minna and Holzapfel, Vivian and Kontinen, Juha and Meier, Arne and Strieker, Laura},
+  editor = {Johann, Patricia and de Queiroz, Ruy J. G. B.},
+  title = {A Circuit-Theoretic View of FO over Semirings},
+  booktitle = {Logic, Language, Information, and Computation - 32nd International
+                    Workshop, WoLLIC 2026, Lima, Peru, August 3-6, 2026, Proceedings},
+  series = {Lecture Notes in Computer Science},
+  volume = {16757},
+  pages = {111--125},
+  publisher = {Springer},
+  year = {2026},
+  url = {https://doi.org/10.1007/978-3-032-33486-2\_8},
+  doi = {10.1007/978-3-032-33486-2\_8},
+  keywords = {semiring semantics, circuit complexity, first-order logic, knowledge representation, model checking, complexity theory}
+}
+</pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- Rechter Bereich: dblp-Style "@"-Button -->
+  <div style="flex-shrink: 0; margin-top: 0.1rem;">
+    <button type="button" class="news-bib-btn" onclick="toggleBibtex('news-bib-DBLP:conf/wollic/BarlagFHHHHKMS26')" title="BibTeX anzeigen" aria-label="BibTeX">
+      @
+    </button>
+  </div>
+
 </div>
-</li>
+
+<!-- Scripts zum Ein-/Ausblenden und Kopieren -->
+<script>
+  if (typeof toggleBibtex !== 'function') {
+    function toggleBibtex(id) {
+      var el = document.getElementById(id);
+      if (el.style.display === "none") {
+        el.style.display = "block";
+      } else {
+        el.style.display = "none";
+      }
+    }
+  }
+
+  if (typeof copyBibtex !== 'function') {
+    function copyBibtex(containerId) {
+      var container = document.getElementById(containerId);
+      var pre = container.querySelector('pre');
+      var key = containerId.replace('news-bib-', '');
+      var feedback = document.getElementById('copy-feedback-' + key);
+      
+      // Text markieren
+      var range = document.createRange();
+      range.selectNodeContents(pre);
+      var selection = window.getSelection();
+      selection.removeAllRanges();
+      selection.addRange(range);
+      
+      // In Zwischenablage kopieren
+      navigator.clipboard.writeText(pre.innerText).then(function() {
+        if (feedback) {
+          feedback.style.display = 'inline';
+          setTimeout(function() {
+            feedback.style.display = 'none';
+          }, 1500);
+        }
+      });
+    }
+  }
+</script></li>
 <li>
 
 
 
 
 
-<div class="news-pub-item">
-  <span class="news-pub-year">2026</span>
-  <span class="news-pub-body">
-    
-      <a href="https://doi.org/10.24963/KR.2026/12" class="news-pub-title" target="_blank" rel="noopener">Complexity of Logics with Semiring Semantics</a>
-    
-    <span class="news-pub-venue">
+<div class="news-pub-item" style="display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; width: 100%;">
+  
+  <!-- Linker Bereich: Jahr + Titel + Venue -->
+  <div style="display: flex; align-items: baseline; gap: 0.75rem; flex: 1; min-width: 0;">
+    <span class="news-pub-year" style="flex-shrink: 0;">2026</span>
+    <div class="news-pub-body" style="flex: 1; min-width: 0;">
       
-        &mdash; <em>Proceedings of the 23rd International Conference on Principles of
+        <a href="https://doi.org/10.24963/KR.2026/12" class="news-pub-title" target="_blank" rel="noopener">Complexity of Logics with Semiring Semantics</a>
+      
+      <span class="news-pub-venue">
+        
+          &mdash; <em>Proceedings of the 23rd International Conference on Principles of
                   Knowledge Representation and Reasoning, KR 2026, Lisbon, Portugal,
                   July 20-23, 2026</em>
-      
-    </span>
-  </span>
+        
+      </span>
+
+      <!-- Ausklapp-Bereich mit Klick-zum-Kopieren Funktion -->
+      <div id="news-bib-DBLP:conf/kr/BarlagFHHHHKMS26" class="bibtex-container" style="display: none; margin-top: 10px; position: relative;">
+        <span id="copy-feedback-DBLP:conf/kr/BarlagFHHHHKMS26" style="display: none; position: absolute; top: 6px; right: 10px; font-size: 0.7rem; background: var(--pub-accent, #043361); color: #fff; padding: 2px 6px; border-radius: 3px; z-index: 10;">Copied!</span>
+        <pre onclick="copyBibtex('news-bib-DBLP:conf/kr/BarlagFHHHHKMS26')" title="Klicken zum Markieren &amp; Kopieren" style="background: var(--pub-control-bg, #f8fafc); padding: 12px 14px; border-radius: 6px; border: 1px solid var(--pub-border, #e2e8f0); font-family: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace; font-size: 0.78rem; line-height: 1.45; color: #334155; overflow-x: auto; white-space: pre; margin: 0; cursor: pointer; user-select: all;">@inproceedings{DBLP:conf/kr/BarlagFHHHHKMS26,
+  author = {Barlag, Timon and Fr{\"{o}}hlich, Nicolas and Hankala, Teemu and Hannula, Miika and Hirvonen, Minna and Holzapfel, Vivian and Kontinen, Juha and Meier, Arne and Strieker, Laura},
+  editor = {Wassermann, Renata and Mugnier, Marie{-}Laure and Baader, Franz},
+  title = {Complexity of Logics with Semiring Semantics},
+  booktitle = {Proceedings of the 23rd International Conference on Principles of
+                    Knowledge Representation and Reasoning, {KR} 2026, Lisbon, Portugal,
+                    July 20-23, 2026},
+  year = {2026},
+  doi = {10.24963/KR.2026/12},
+  keywords = {semiring semantics, complexity, logic, knowledge representation}
+}
+</pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- Rechter Bereich: dblp-Style "@"-Button -->
+  <div style="flex-shrink: 0; margin-top: 0.1rem;">
+    <button type="button" class="news-bib-btn" onclick="toggleBibtex('news-bib-DBLP:conf/kr/BarlagFHHHHKMS26')" title="BibTeX anzeigen" aria-label="BibTeX">
+      @
+    </button>
+  </div>
+
 </div>
-</li>
+
+<!-- Scripts zum Ein-/Ausblenden und Kopieren -->
+<script>
+  if (typeof toggleBibtex !== 'function') {
+    function toggleBibtex(id) {
+      var el = document.getElementById(id);
+      if (el.style.display === "none") {
+        el.style.display = "block";
+      } else {
+        el.style.display = "none";
+      }
+    }
+  }
+
+  if (typeof copyBibtex !== 'function') {
+    function copyBibtex(containerId) {
+      var container = document.getElementById(containerId);
+      var pre = container.querySelector('pre');
+      var key = containerId.replace('news-bib-', '');
+      var feedback = document.getElementById('copy-feedback-' + key);
+      
+      // Text markieren
+      var range = document.createRange();
+      range.selectNodeContents(pre);
+      var selection = window.getSelection();
+      selection.removeAllRanges();
+      selection.addRange(range);
+      
+      // In Zwischenablage kopieren
+      navigator.clipboard.writeText(pre.innerText).then(function() {
+        if (feedback) {
+          feedback.style.display = 'inline';
+          setTimeout(function() {
+            feedback.style.display = 'none';
+          }, 1500);
+        }
+      });
+    }
+  }
+</script></li>
 <li>
 
 
 
 
 
-<div class="news-pub-item">
-  <span class="news-pub-year">2026</span>
-  <span class="news-pub-body">
-    
-      <a href="https://doi.org/10.24963/KR.2026/40" class="news-pub-title" target="_blank" rel="noopener">Representation Theorems for Cumulative Propositional Dependence Logics</a>
-    
-    <span class="news-pub-venue">
+<div class="news-pub-item" style="display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; width: 100%;">
+  
+  <!-- Linker Bereich: Jahr + Titel + Venue -->
+  <div style="display: flex; align-items: baseline; gap: 0.75rem; flex: 1; min-width: 0;">
+    <span class="news-pub-year" style="flex-shrink: 0;">2026</span>
+    <div class="news-pub-body" style="flex: 1; min-width: 0;">
       
-        &mdash; <em>Proceedings of the 23rd International Conference on Principles of
+        <a href="https://doi.org/10.24963/KR.2026/40" class="news-pub-title" target="_blank" rel="noopener">Representation Theorems for Cumulative Propositional Dependence Logics</a>
+      
+      <span class="news-pub-venue">
+        
+          &mdash; <em>Proceedings of the 23rd International Conference on Principles of
                   Knowledge Representation and Reasoning, KR 2026, Lisbon, Portugal,
                   July 20-23, 2026</em>
-      
-    </span>
-  </span>
+        
+      </span>
+
+      <!-- Ausklapp-Bereich mit Klick-zum-Kopieren Funktion -->
+      <div id="news-bib-DBLP:conf/kr/KontinenMS26" class="bibtex-container" style="display: none; margin-top: 10px; position: relative;">
+        <span id="copy-feedback-DBLP:conf/kr/KontinenMS26" style="display: none; position: absolute; top: 6px; right: 10px; font-size: 0.7rem; background: var(--pub-accent, #043361); color: #fff; padding: 2px 6px; border-radius: 3px; z-index: 10;">Copied!</span>
+        <pre onclick="copyBibtex('news-bib-DBLP:conf/kr/KontinenMS26')" title="Klicken zum Markieren &amp; Kopieren" style="background: var(--pub-control-bg, #f8fafc); padding: 12px 14px; border-radius: 6px; border: 1px solid var(--pub-border, #e2e8f0); font-family: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace; font-size: 0.78rem; line-height: 1.45; color: #334155; overflow-x: auto; white-space: pre; margin: 0; cursor: pointer; user-select: all;">@inproceedings{DBLP:conf/kr/KontinenMS26,
+  author = {Kontinen, Juha and Meier, Arne and Sauerwald, Kai},
+  editor = {Wassermann, Renata and Mugnier, Marie{-}Laure and Baader, Franz},
+  title = {Representation Theorems for Cumulative Propositional Dependence Logics},
+  booktitle = {Proceedings of the 23rd International Conference on Principles of
+                    Knowledge Representation and Reasoning, {KR} 2026, Lisbon, Portugal,
+                    July 20-23, 2026},
+  year = {2026},
+  doi = {10.24963/KR.2026/40},
+  keywords = {preferential logic, dependence logic, cumulative logic, team semantics, knowledge representation, non-monotonic reasoning}
+}
+</pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- Rechter Bereich: dblp-Style "@"-Button -->
+  <div style="flex-shrink: 0; margin-top: 0.1rem;">
+    <button type="button" class="news-bib-btn" onclick="toggleBibtex('news-bib-DBLP:conf/kr/KontinenMS26')" title="BibTeX anzeigen" aria-label="BibTeX">
+      @
+    </button>
+  </div>
+
 </div>
-</li>
+
+<!-- Scripts zum Ein-/Ausblenden und Kopieren -->
+<script>
+  if (typeof toggleBibtex !== 'function') {
+    function toggleBibtex(id) {
+      var el = document.getElementById(id);
+      if (el.style.display === "none") {
+        el.style.display = "block";
+      } else {
+        el.style.display = "none";
+      }
+    }
+  }
+
+  if (typeof copyBibtex !== 'function') {
+    function copyBibtex(containerId) {
+      var container = document.getElementById(containerId);
+      var pre = container.querySelector('pre');
+      var key = containerId.replace('news-bib-', '');
+      var feedback = document.getElementById('copy-feedback-' + key);
+      
+      // Text markieren
+      var range = document.createRange();
+      range.selectNodeContents(pre);
+      var selection = window.getSelection();
+      selection.removeAllRanges();
+      selection.addRange(range);
+      
+      // In Zwischenablage kopieren
+      navigator.clipboard.writeText(pre.innerText).then(function() {
+        if (feedback) {
+          feedback.style.display = 'inline';
+          setTimeout(function() {
+            feedback.style.display = 'none';
+          }, 1500);
+        }
+      });
+    }
+  }
+</script></li>
 <li>
 
 
 
 
 
-<div class="news-pub-item">
-  <span class="news-pub-year">2026</span>
-  <span class="news-pub-body">
-    
-      <a href="https://doi.org/10.4230/LIPICS.CSL.2026.10" class="news-pub-title" target="_blank" rel="noopener">Disjunctions of Two Dependence Atoms</a>
-    
-    <span class="news-pub-venue">
+<div class="news-pub-item" style="display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; width: 100%;">
+  
+  <!-- Linker Bereich: Jahr + Titel + Venue -->
+  <div style="display: flex; align-items: baseline; gap: 0.75rem; flex: 1; min-width: 0;">
+    <span class="news-pub-year" style="flex-shrink: 0;">2026</span>
+    <div class="news-pub-body" style="flex: 1; min-width: 0;">
       
-        &mdash; <em>34th EACSL Annual Conference on Computer Science Logic (CSL 2026)</em>
+        <a href="https://doi.org/10.4230/LIPICS.CSL.2026.10" class="news-pub-title" target="_blank" rel="noopener">Disjunctions of Two Dependence Atoms</a>
       
-    </span>
-  </span>
+      <span class="news-pub-venue">
+        
+          &mdash; <em>34th EACSL Annual Conference on Computer Science Logic (CSL 2026)</em>
+        
+      </span>
+
+      <!-- Ausklapp-Bereich mit Klick-zum-Kopieren Funktion -->
+      <div id="news-bib-DBLP:conf/csl/0001KM26" class="bibtex-container" style="display: none; margin-top: 10px; position: relative;">
+        <span id="copy-feedback-DBLP:conf/csl/0001KM26" style="display: none; position: absolute; top: 6px; right: 10px; font-size: 0.7rem; background: var(--pub-accent, #043361); color: #fff; padding: 2px 6px; border-radius: 3px; z-index: 10;">Copied!</span>
+        <pre onclick="copyBibtex('news-bib-DBLP:conf/csl/0001KM26')" title="Klicken zum Markieren &amp; Kopieren" style="background: var(--pub-control-bg, #f8fafc); padding: 12px 14px; border-radius: 6px; border: 1px solid var(--pub-border, #e2e8f0); font-family: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace; font-size: 0.78rem; line-height: 1.45; color: #334155; overflow-x: auto; white-space: pre; margin: 0; cursor: pointer; user-select: all;">@inproceedings{DBLP:conf/csl/0001KM26,
+  author = {Fr{\"{o}}hlich, Nicolas and Kolaitis, Phokion G. and Meier, Arne},
+  title = {Disjunctions of Two Dependence Atoms},
+  booktitle = {34th {EACSL} Annual Conference on Computer Science Logic ({CSL} 2026)},
+  series = {LIPIcs},
+  volume = {363},
+  pages = {10:1--10:21},
+  publisher = {Schloss Dagstuhl - Leibniz-Zentrum f{\"{u}}r Informatik},
+  year = {2026},
+  doi = {10.4230/LIPICS.CSL.2026.10},
+  url = {https://doi.org/10.4230/LIPIcs.CSL.2026.10},
+  keywords = {dependence logic, team semantics, coherence, model checking, first-order logic}
+}
+</pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- Rechter Bereich: dblp-Style "@"-Button -->
+  <div style="flex-shrink: 0; margin-top: 0.1rem;">
+    <button type="button" class="news-bib-btn" onclick="toggleBibtex('news-bib-DBLP:conf/csl/0001KM26')" title="BibTeX anzeigen" aria-label="BibTeX">
+      @
+    </button>
+  </div>
+
 </div>
-</li>
+
+<!-- Scripts zum Ein-/Ausblenden und Kopieren -->
+<script>
+  if (typeof toggleBibtex !== 'function') {
+    function toggleBibtex(id) {
+      var el = document.getElementById(id);
+      if (el.style.display === "none") {
+        el.style.display = "block";
+      } else {
+        el.style.display = "none";
+      }
+    }
+  }
+
+  if (typeof copyBibtex !== 'function') {
+    function copyBibtex(containerId) {
+      var container = document.getElementById(containerId);
+      var pre = container.querySelector('pre');
+      var key = containerId.replace('news-bib-', '');
+      var feedback = document.getElementById('copy-feedback-' + key);
+      
+      // Text markieren
+      var range = document.createRange();
+      range.selectNodeContents(pre);
+      var selection = window.getSelection();
+      selection.removeAllRanges();
+      selection.addRange(range);
+      
+      // In Zwischenablage kopieren
+      navigator.clipboard.writeText(pre.innerText).then(function() {
+        if (feedback) {
+          feedback.style.display = 'inline';
+          setTimeout(function() {
+            feedback.style.display = 'none';
+          }, 1500);
+        }
+      });
+    }
+  }
+</script></li>
 <li>
 
 
 
 
 
-<div class="news-pub-item">
-  <span class="news-pub-year">2026</span>
-  <span class="news-pub-body">
-    
-      <a href="https://doi.org/10.1007/978-3-032-21540-6_14" class="news-pub-title" target="_blank" rel="noopener">When Symmetry Yields NP-Hardness: Affine ML-SAT on S5 Frames</a>
-    
-    <span class="news-pub-venue">
+<div class="news-pub-item" style="display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; width: 100%;">
+  
+  <!-- Linker Bereich: Jahr + Titel + Venue -->
+  <div style="display: flex; align-items: baseline; gap: 0.75rem; flex: 1; min-width: 0;">
+    <span class="news-pub-year" style="flex-shrink: 0;">2026</span>
+    <div class="news-pub-body" style="flex: 1; min-width: 0;">
       
-        &mdash; <em>Foundations of Information and Knowledge Systems (FoIKS 2026)</em>
+        <a href="https://doi.org/10.1007/978-3-032-21540-6_14" class="news-pub-title" target="_blank" rel="noopener">When Symmetry Yields NP-Hardness: Affine ML-SAT on S5 Frames</a>
       
-    </span>
-  </span>
+      <span class="news-pub-venue">
+        
+          &mdash; <em>Foundations of Information and Knowledge Systems (FoIKS 2026)</em>
+        
+      </span>
+
+      <!-- Ausklapp-Bereich mit Klick-zum-Kopieren Funktion -->
+      <div id="news-bib-DBLP:conf/foiks/KrebsM26" class="bibtex-container" style="display: none; margin-top: 10px; position: relative;">
+        <span id="copy-feedback-DBLP:conf/foiks/KrebsM26" style="display: none; position: absolute; top: 6px; right: 10px; font-size: 0.7rem; background: var(--pub-accent, #043361); color: #fff; padding: 2px 6px; border-radius: 3px; z-index: 10;">Copied!</span>
+        <pre onclick="copyBibtex('news-bib-DBLP:conf/foiks/KrebsM26')" title="Klicken zum Markieren &amp; Kopieren" style="background: var(--pub-control-bg, #f8fafc); padding: 12px 14px; border-radius: 6px; border: 1px solid var(--pub-border, #e2e8f0); font-family: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace; font-size: 0.78rem; line-height: 1.45; color: #334155; overflow-x: auto; white-space: pre; margin: 0; cursor: pointer; user-select: all;">@inproceedings{DBLP:conf/foiks/KrebsM26,
+  author = {Krebs, Andreas and Meier, Arne},
+  title = {When Symmetry Yields {NP}-Hardness: Affine {ML-SAT} on {S5} Frames},
+  booktitle = {Foundations of Information and Knowledge Systems ({FoIKS} 2026)},
+  series = {Lecture Notes in Computer Science},
+  volume = {16475},
+  pages = {232--242},
+  publisher = {Springer},
+  year = {2026},
+  doi = {10.1007/978-3-032-21540-6\_14},
+  url = {https://doi.org/10.1007/978-3-032-21540-6_14},
+  keywords = {modal logic, satisfiability, affine clones, S5 frames, complexity theory}
+}
+</pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- Rechter Bereich: dblp-Style "@"-Button -->
+  <div style="flex-shrink: 0; margin-top: 0.1rem;">
+    <button type="button" class="news-bib-btn" onclick="toggleBibtex('news-bib-DBLP:conf/foiks/KrebsM26')" title="BibTeX anzeigen" aria-label="BibTeX">
+      @
+    </button>
+  </div>
+
 </div>
-</li></ol>
+
+<!-- Scripts zum Ein-/Ausblenden und Kopieren -->
+<script>
+  if (typeof toggleBibtex !== 'function') {
+    function toggleBibtex(id) {
+      var el = document.getElementById(id);
+      if (el.style.display === "none") {
+        el.style.display = "block";
+      } else {
+        el.style.display = "none";
+      }
+    }
+  }
+
+  if (typeof copyBibtex !== 'function') {
+    function copyBibtex(containerId) {
+      var container = document.getElementById(containerId);
+      var pre = container.querySelector('pre');
+      var key = containerId.replace('news-bib-', '');
+      var feedback = document.getElementById('copy-feedback-' + key);
+      
+      // Text markieren
+      var range = document.createRange();
+      range.selectNodeContents(pre);
+      var selection = window.getSelection();
+      selection.removeAllRanges();
+      selection.addRange(range);
+      
+      // In Zwischenablage kopieren
+      navigator.clipboard.writeText(pre.innerText).then(function() {
+        if (feedback) {
+          feedback.style.display = 'inline';
+          setTimeout(function() {
+            feedback.style.display = 'none';
+          }, 1500);
+        }
+      });
+    }
+  }
+</script></li></ol>
 
 <h3 id="journal">Journal</h3>
 <ol class="bibliography"><li>
@@ -274,40 +622,179 @@ I obtained my Bachelor’s and Master’s Degrees in Computer Science as well as
 
 
 
-<div class="news-pub-item">
-  <span class="news-pub-year">2027</span>
-  <span class="news-pub-body">
-    
-      <a href="https://doi.org/10.1016/j.jcss.2026.103859" class="news-pub-title" target="_blank" rel="noopener">Temporal team semantics revisited</a>
-    
-    <span class="news-pub-venue">
+<div class="news-pub-item" style="display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; width: 100%;">
+  
+  <!-- Linker Bereich: Jahr + Titel + Venue -->
+  <div style="display: flex; align-items: baseline; gap: 0.75rem; flex: 1; min-width: 0;">
+    <span class="news-pub-year" style="flex-shrink: 0;">2027</span>
+    <div class="news-pub-body" style="flex: 1; min-width: 0;">
       
-        &mdash; <em>Journal of Computer and System Sciences</em>&thinsp;163
+        <a href="https://doi.org/10.1016/j.jcss.2026.103859" class="news-pub-title" target="_blank" rel="noopener">Temporal team semantics revisited</a>
       
-    </span>
-  </span>
+      <span class="news-pub-venue">
+        
+          &mdash; <em>Journal of Computer and System Sciences</em>&thinsp;163
+        
+      </span>
+
+      <!-- Ausklapp-Bereich mit Klick-zum-Kopieren Funktion -->
+      <div id="news-bib-GUTSFELD2027103859" class="bibtex-container" style="display: none; margin-top: 10px; position: relative;">
+        <span id="copy-feedback-GUTSFELD2027103859" style="display: none; position: absolute; top: 6px; right: 10px; font-size: 0.7rem; background: var(--pub-accent, #043361); color: #fff; padding: 2px 6px; border-radius: 3px; z-index: 10;">Copied!</span>
+        <pre onclick="copyBibtex('news-bib-GUTSFELD2027103859')" title="Klicken zum Markieren &amp; Kopieren" style="background: var(--pub-control-bg, #f8fafc); padding: 12px 14px; border-radius: 6px; border: 1px solid var(--pub-border, #e2e8f0); font-family: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace; font-size: 0.78rem; line-height: 1.45; color: #334155; overflow-x: auto; white-space: pre; margin: 0; cursor: pointer; user-select: all;">@article{GUTSFELD2027103859,
+  author = {Gutsfeld, Jens Oliver and Ohrem, Christoph and Meier, Arne and Virtema, Jonni},
+  doi = {https://doi.org/10.1016/j.jcss.2026.103859},
+  issn = {0022-0000},
+  journal = {Journal of Computer and System Sciences},
+  keywords = {Team semantics, Temporal logic, Hyperproperties, Automata theory, Model checking, Asynchronicity},
+  pages = {103859},
+  title = {Temporal team semantics revisited},
+  url = {https://www.sciencedirect.com/science/article/pii/S0022000026001054},
+  volume = {163},
+  year = {2027},
+  confversion = {DBLP:conf/lics/GutsfeldMOV22}
+}
+</pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- Rechter Bereich: dblp-Style "@"-Button -->
+  <div style="flex-shrink: 0; margin-top: 0.1rem;">
+    <button type="button" class="news-bib-btn" onclick="toggleBibtex('news-bib-GUTSFELD2027103859')" title="BibTeX anzeigen" aria-label="BibTeX">
+      @
+    </button>
+  </div>
+
 </div>
-</li>
+
+<!-- Scripts zum Ein-/Ausblenden und Kopieren -->
+<script>
+  if (typeof toggleBibtex !== 'function') {
+    function toggleBibtex(id) {
+      var el = document.getElementById(id);
+      if (el.style.display === "none") {
+        el.style.display = "block";
+      } else {
+        el.style.display = "none";
+      }
+    }
+  }
+
+  if (typeof copyBibtex !== 'function') {
+    function copyBibtex(containerId) {
+      var container = document.getElementById(containerId);
+      var pre = container.querySelector('pre');
+      var key = containerId.replace('news-bib-', '');
+      var feedback = document.getElementById('copy-feedback-' + key);
+      
+      // Text markieren
+      var range = document.createRange();
+      range.selectNodeContents(pre);
+      var selection = window.getSelection();
+      selection.removeAllRanges();
+      selection.addRange(range);
+      
+      // In Zwischenablage kopieren
+      navigator.clipboard.writeText(pre.innerText).then(function() {
+        if (feedback) {
+          feedback.style.display = 'inline';
+          setTimeout(function() {
+            feedback.style.display = 'none';
+          }, 1500);
+        }
+      });
+    }
+  }
+</script></li>
 <li>
 
 
 
 
 
-<div class="news-pub-item">
-  <span class="news-pub-year">2025</span>
-  <span class="news-pub-body">
-    
-      <a href="https://doi.org/10.1093/LOGCOM/EXAF021" class="news-pub-title" target="_blank" rel="noopener">Logics with probabilistic team semantics and the Boolean negation</a>
-    
-    <span class="news-pub-venue">
+<div class="news-pub-item" style="display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; width: 100%;">
+  
+  <!-- Linker Bereich: Jahr + Titel + Venue -->
+  <div style="display: flex; align-items: baseline; gap: 0.75rem; flex: 1; min-width: 0;">
+    <span class="news-pub-year" style="flex-shrink: 0;">2025</span>
+    <div class="news-pub-body" style="flex: 1; min-width: 0;">
       
-        &mdash; <em>J. Log. Comput.</em>&thinsp;35(3)
+        <a href="https://doi.org/10.1093/LOGCOM/EXAF021" class="news-pub-title" target="_blank" rel="noopener">Logics with probabilistic team semantics and the Boolean negation</a>
       
-    </span>
-  </span>
+      <span class="news-pub-venue">
+        
+          &mdash; <em>J. Log. Comput.</em>&thinsp;35(3)
+        
+      </span>
+
+      <!-- Ausklapp-Bereich mit Klick-zum-Kopieren Funktion -->
+      <div id="news-bib-DBLP:journals/logcom/HannulaHKMMV25" class="bibtex-container" style="display: none; margin-top: 10px; position: relative;">
+        <span id="copy-feedback-DBLP:journals/logcom/HannulaHKMMV25" style="display: none; position: absolute; top: 6px; right: 10px; font-size: 0.7rem; background: var(--pub-accent, #043361); color: #fff; padding: 2px 6px; border-radius: 3px; z-index: 10;">Copied!</span>
+        <pre onclick="copyBibtex('news-bib-DBLP:journals/logcom/HannulaHKMMV25')" title="Klicken zum Markieren &amp; Kopieren" style="background: var(--pub-control-bg, #f8fafc); padding: 12px 14px; border-radius: 6px; border: 1px solid var(--pub-border, #e2e8f0); font-family: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace; font-size: 0.78rem; line-height: 1.45; color: #334155; overflow-x: auto; white-space: pre; margin: 0; cursor: pointer; user-select: all;">@article{DBLP:journals/logcom/HannulaHKMMV25,
+  author = {Hannula, Miika and Hirvonen, Minna and Kontinen, Juha and Mahmood, Yasir and Meier, Arne and Virtema, Jonni},
+  title = {Logics with probabilistic team semantics and the {Boolean} negation},
+  journal = {J. Log. Comput.},
+  volume = {35},
+  number = {3},
+  year = {2025},
+  doi = {10.1093/LOGCOM/EXAF021},
+  url = {https://doi.org/10.1093/logcom/exaf021},
+  confversion = {DBLP:conf/jelia/HannulaHKMMV23},
+  keywords = {team semantics, dependence logic, probabilistic logic, complexity theory}
+}
+</pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- Rechter Bereich: dblp-Style "@"-Button -->
+  <div style="flex-shrink: 0; margin-top: 0.1rem;">
+    <button type="button" class="news-bib-btn" onclick="toggleBibtex('news-bib-DBLP:journals/logcom/HannulaHKMMV25')" title="BibTeX anzeigen" aria-label="BibTeX">
+      @
+    </button>
+  </div>
+
 </div>
-</li></ol>
+
+<!-- Scripts zum Ein-/Ausblenden und Kopieren -->
+<script>
+  if (typeof toggleBibtex !== 'function') {
+    function toggleBibtex(id) {
+      var el = document.getElementById(id);
+      if (el.style.display === "none") {
+        el.style.display = "block";
+      } else {
+        el.style.display = "none";
+      }
+    }
+  }
+
+  if (typeof copyBibtex !== 'function') {
+    function copyBibtex(containerId) {
+      var container = document.getElementById(containerId);
+      var pre = container.querySelector('pre');
+      var key = containerId.replace('news-bib-', '');
+      var feedback = document.getElementById('copy-feedback-' + key);
+      
+      // Text markieren
+      var range = document.createRange();
+      range.selectNodeContents(pre);
+      var selection = window.getSelection();
+      selection.removeAllRanges();
+      selection.addRange(range);
+      
+      // In Zwischenablage kopieren
+      navigator.clipboard.writeText(pre.innerText).then(function() {
+        if (feedback) {
+          feedback.style.display = 'inline';
+          setTimeout(function() {
+            feedback.style.display = 'none';
+          }, 1500);
+        }
+      });
+    }
+  }
+</script></li></ol>
 
 <p style="margin-top: 0.5rem;">
   <a href="/publications/" class="view-all-link">View all publications &rarr;</a>

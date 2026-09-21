@@ -52,6 +52,9 @@
       {% endif %}
     {% endif %}
 
+    <!-- Neuer BibTeX Button -->
+    <button type="button" class="pub-badge badge-bibtex" onclick="toggleBibtex('bib-{{ entry.key }}')">BibTeX</button>
+
     {% if the_url and the_url != "" %}
       {% unless the_url contains "doi.org" %}
         <a href="{{ the_url }}" class="pub-badge badge-link" target="_blank" rel="noopener">Link</a>
@@ -82,6 +85,25 @@
         {% endfor %}
       </div>
     {% endif %}
+
+    <!-- Versteckter Bereich mit den BibTeX-Daten -->
+    <div id="bib-{{ entry.key }}" class="bibtex-container" style="display: none; margin-top: 8px;">
+      <pre style="background: #f4f4f4; padding: 10px; border-radius: 4px; overflow-x: auto; font-size: 0.85em;">{{ entry.bibtex }}</pre>
+    </div>
   </div>
 
 </div>
+
+<!-- Kleines Script zum Ein-/Ausblenden -->
+<script>
+  if (typeof toggleBibtex !== 'function') {
+    function toggleBibtex(id) {
+      var el = document.getElementById(id);
+      if (el.style.display === "none") {
+        el.style.display = "block";
+      } else {
+        el.style.display = "none";
+      }
+    }
+  }
+</script>
