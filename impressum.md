@@ -4,16 +4,32 @@ title: Impressum
 permalink: /impressum/
 ---
 
-## Impressum
+## Angaben gemäß § 5 DDG (ehemals § 5 TMG)
 
-Diese Website ist die private akademische Visitenkarte von Arne Meier.  
-Für Impressumsangaben gemäß § 5 TMG verweise ich auf meine offizielle Institutsseite:
+**Dienstanbieter:**  
+Prof. Dr. Arne Meier  
+Institut für Theoretische Informatik  
+Leibniz Universität Hannover  
+Appelstraße 9a 
+30167 Hannover  
+Deutschland  
 
-[**thi.uni-hannover.de/meier**](https://www.thi.uni-hannover.de/meier){:target="_blank" rel="noopener noreferrer"}
+**Kontakt:**  
+E-Mail: meier@thi.uni-hannover.de  
+Telefon: +49 (0)511 762-19768
 
-#### English version
- 
-This website is Arne Meier’s personal academic profile.
-For legal notice details in accordance with Section 5 of the German Telemedia Act (TMG), please refer to my official institute website:
+---
 
-[**thi.uni-hannover.de/meier**](https://www.thi.uni-hannover.de/meier){:target="_blank" rel="noopener noreferrer"}
+## Legal Notice (English Version)
+
+**Service Provider:**  
+Prof. Dr. Arne Meier  
+Institute for Theoretical Computer Science  
+Leibniz University Hannover  
+Appelstraße 9a
+30167 Hannover  
+Germany  
+
+**Contact:**  
+Email: meier@thi.uni-hannover.de  
+Phone: +49 (0)511 762-19768
