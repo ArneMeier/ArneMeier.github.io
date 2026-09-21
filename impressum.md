@@ -10,7 +10,7 @@ permalink: /impressum/
 Prof. Dr. Arne Meier  
 Institut für Theoretische Informatik  
 Leibniz Universität Hannover  
-Appelstraße 9a 
+Appelstraße 9a  
 30167 Hannover  
 Deutschland  
 
@@ -26,7 +26,7 @@ Telefon: +49 (0)511 762-19768
 Prof. Dr. Arne Meier  
 Institute for Theoretical Computer Science  
 Leibniz University Hannover  
-Appelstraße 9a
+Appelstraße 9a  
 30167 Hannover  
 Germany  
 
